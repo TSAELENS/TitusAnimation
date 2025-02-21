@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda - Affiches{% endblock %}
+
+{% block body %}
+<section class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-6 text-center">Agenda - Affiches</h1>
+  <p class="text-center text-gray-600 mb-8">Découvrez nos affiches et événements à venir.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ asset('build/images/agenda/affiche1.jpg') }}" alt="Affiche 1" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ asset('build/images/agenda/affiche2.jpg') }}" alt="Affiche 2" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ asset('build/images/agenda/affiche3.jpg') }}" alt="Affiche 3" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
+    </div>
+    {# Ajoutez d'autres affiches si nécessaire #}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{# templates/prestations/sur_scene.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestations - Sur scène{% endblock %}
+
+{% block body %}
+<section class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-4">Prestations : Sur scène</h1>
+  <p class="mb-4">
+    Découvrez nos animations sur scène, où l'art du ballon prend vie devant un public en direct.
+  </p>
+  {# Ajoute ici le contenu, des images ou des vidéos spécifiques à cette prestation #}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <img src="{{ asset('build/images/prestations/sur_scene_1.jpg') }}" alt="Animation sur scène 1" class="rounded shadow">
+    <img src="{{ asset('build/images/prestations/sur_scene_2.jpg') }}" alt="Animation sur scène 2" class="rounded shadow">
+  </div>
+</section>
+{% endblock %}

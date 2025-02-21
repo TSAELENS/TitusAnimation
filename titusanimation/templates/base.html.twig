@@ -9,7 +9,128 @@
     {% endblock %}
   </head>
   <body>
-    {% block body %}{% endblock %}
+  {# --- Barre de navigation --- #}
+<nav class="bg-white shadow fixed w-full z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="{{ path('homepage') }}" class="text-2xl font-bold text-gray-800">Titus Animation</a>
+    <!-- Menu Desktop -->
+    <ul class="hidden md:flex space-x-8">
+      <li>
+        <a href="{{ path('homepage') }}" class="text-gray-600 hover:text-gray-900 transition">Accueil</a>
+      </li>
+      <li class="relative group">
+        <a href="#" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+          Prestations
+          <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
+          </svg>
+        </a>
+        <ul class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+          <li><a href="{{ path('prestations_sur_scene') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sur scène</a></li>
+          <li><a href="{{ path('prestations_sculpture_fixe') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sculpture fixe</a></li>
+          <li><a href="{{ path('prestations_sculpture_mobile') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sculpture mobile</a></li>
+          <li><a href="{{ path('prestations_decoration') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Décoration</a></li>
+          <li><a href="{{ path('prestations_comte') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Comte (médiéval)</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="{{ path('livre_dor') }}" class="text-gray-600 hover:text-gray-900 transition">Livre d’or</a>
+      </li>
+      <li class="relative group">
+        <a href="#" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+          Galerie
+          <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
+          </svg>
+        </a>
+        <ul class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+          <li><a href="{{ path('galerie_photos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Photos</a></li>
+          <li><a href="{{ path('galerie_videos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Vidéos</a></li>
+        </ul>
+      </li>
+      <li class="relative group">
+        <a href="#" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+          Agenda
+          <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
+          </svg>
+        </a>
+        <ul class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+          <li><a href="{{ path('agenda_affiches') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Affiches</a></li>
+          <li><a href="{{ path('agenda_calendrier') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Calendrier</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="{{ path('devis') }}" class="text-gray-600 hover:text-gray-900 transition">Devis</a>
+      </li>
+    </ul>
+    <!-- Menu Mobile Button -->
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <ul class="px-4 pt-2 pb-4 space-y-2">
+      <li>
+        <a href="{{ path('homepage') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Accueil</a>
+      </li>
+      <li>
+        <details class="group">
+          <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Prestations</summary>
+          <ul class="pl-4 mt-1 space-y-1">
+            <li><a href="{{ path('prestations_sur_scene') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Sur scène</a></li>
+            <li><a href="{{ path('prestations_sculpture_fixe') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Sculpture fixe</a></li>
+            <li><a href="{{ path('prestations_sculpture_mobile') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Sculpture mobile</a></li>
+            <li><a href="{{ path('prestations_decoration') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Décoration</a></li>
+            <li><a href="{{ path('prestations_comte') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Comte (médiéval)</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <a href="{{ path('livre_dor') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Livre d’or</a>
+      </li>
+      <li>
+        <details class="group">
+          <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Galerie</summary>
+          <ul class="pl-4 mt-1 space-y-1">
+            <li><a href="{{ path('galerie_photos') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Photos</a></li>
+            <li><a href="{{ path('galerie_videos') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Vidéos</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details class="group">
+          <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Agenda</summary>
+          <ul class="pl-4 mt-1 space-y-1">
+            <li><a href="{{ path('agenda_affiches') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Affiches</a></li>
+            <li><a href="{{ path('agenda_calendrier') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Calendrier</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <a href="{{ path('devis') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Devis</a>
+      </li>
+    </ul>
+  </div>
+  <script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</nav>
+
+    {# Contenu de chaque page #}
+    <main>
+      {% block body %}{% endblock %}
+    </main>
+
     {% block javascripts %}
       {{ encore_entry_script_tags('app') }}
     {% endblock %}

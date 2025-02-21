@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda - Calendrier{% endblock %}
+
+{% block body %}
+<section class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-6 text-center">Agenda - Calendrier</h1>
+  <p class="text-center text-gray-600 mb-8">Consultez notre calendrier pour connaître nos disponibilités et prochains événements.</p>
+  <div class="overflow-hidden rounded-lg shadow-lg">
+    {# Ici vous pouvez intégrer un plugin de calendrier tel que FullCalendar ou afficher un calendrier statique #}
+    <div id="calendar" class="w-full h-96 bg-white flex items-center justify-center">
+      <p class="text-gray-500">Calendrier à venir...</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

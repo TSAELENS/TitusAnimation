@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie - Vidéos{% endblock %}
+
+{% block body %}
+<section class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-6 text-center">Galerie - Vidéos</h1>
+  <p class="text-center text-gray-600 mb-8">Découvrez nos animations en vidéo.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_1" title="Vidéo 1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_2" title="Vidéo 2" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_3" title="Vidéo 3" frameborder="0" allowfullscreen></iframe>
+    </div>
+    {# Ajoutez d'autres blocs vidéo si nécessaire #}
+  </div>
+</section>
+{% endblock %}
