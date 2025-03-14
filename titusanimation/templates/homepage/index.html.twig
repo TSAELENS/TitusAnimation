@@ -5,10 +5,10 @@
 {% block body %}
 
   {# --- Hero Section --- #}
-  <header class="relative bg-gradient-to-r from-sky-800 to-sky-500 h-screen flex items-center justify-center">
-    <div class="absolute inset-0">
+  {# <header class="relative bg-gradient-to-r from-sky-800 to-sky-500 h-screen flex items-center justify-center">
+    <div class="absolute inset-0"> #}
       {# <img src="/build/images/hero-bg.png" alt="Hero background" class="w-80% h-80% object-cover opacity-30"> #}
-    </div>
+    {# </div>
     <div class="relative text-center px-4">
       <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-lg">L'Art du Ballon</h1>
       <p class="text-xl md:text-2xl text-white mb-8 drop-shadow-md">
@@ -18,26 +18,51 @@
         En savoir plus
       </a>
     </div>
-  </header>
+  </header> #}
 
-  {# --- Section À propos --- #}
-  <section id="about" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-800">À propos de l'artiste</h2>
-        <p class="text-gray-600 mt-4">
-          Découvrez la passion et la créativité derrière chaque sculpture en ballon.
-        </p>
-      </div>
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="text-lg text-gray-700">
-          L'artiste fusionne innovation et art pour transformer des ballons en œuvres d'art uniques.
-          Chaque création est un hommage à la beauté éphémère et à la magie de l'instant.
-          Avec une expertise reconnue, il apporte une touche d'originalité à chaque événement.
-        </p>
-      </div>
+
+<section class="bg-gray-900 min-h-screen pt-24 pb-8 flex items-center justify-center">
+  <div class="bg-white rounded shadow p-8 relative overflow-visible" style="width: 1000px;">
+    <img 
+      src="{{ asset('build/images/home-removebg.png') }}" 
+      alt="Clown Titus" 
+      style="
+        width: 450px;
+        height: auto;
+        position: absolute;
+        left: -200px;
+        top: -200px;
+        z-index: 10;
+      "
+    >
+    <div class="ml-[420px] mt-6">
+      <h2 class="text-3xl font-bold mb-4">Accueil : Texte de présentation</h2>
+      <p class="mb-4">
+        Bienvenue dans l’univers de Titus, un artiste clown et sculpteur de ballons dont la passion n’a d’égal que sa créativité. 
+        Depuis plus de 15 ans, il émerveille les petits comme les grands avec des spectacles hauts en couleur, 
+        un conte médiéval enchanteur et des sculptures de ballons époustouflantes.
+      </p>
+      <p class="mb-4">
+        Originaire du Nord de la France, dans un petit village des Flandres entre Lille et Dunkerque, Titus n’a de cesse 
+        de repousser les limites de son art, avec toujours plus de passion, de rire et de partage. 
+        Sur scène, dans les rues, les mariages ou les festivals, il enchante toutes les générations et créations. 
+        Chaque représentation est un spectacle unique.
+      </p>
+      <p class="mb-4">
+        Laissez-vous emporter par son univers où chaque instant est un souffle de bonheur et de surprises, 
+        où l’humour, la poésie et l’imaginaire ne cessent d’animer chaque seconde. 
+        Rien n’est impossible pour Titus : chaque spectacle est un voyage, chaque sculpture une révélation.
+      </p>
+      <p class="mb-4">
+        Titus propose ses animations dans un rayon de 70 km autour de son domicile.
+      </p>
+      <p>
+        Surfez sur ce site pour découvrir les différentes animations et spectacles proposés.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
+
 
   {# --- Section Galerie / Photos --- #}
   <section id="portfolio" class="py-20 bg-gray-100">
