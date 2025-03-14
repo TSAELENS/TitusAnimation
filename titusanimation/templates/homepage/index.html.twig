@@ -21,24 +21,24 @@
   </header> #}
 
 
-<section class="bg-gray-900 min-h-screen pt-24 pb-8 flex items-center justify-center">
-  <div class="bg-white rounded shadow p-8 relative overflow-visible" style="width: 1000px;">
+<section class="bg-gray-900 pt-24 pb-8 flex items-center justify-center">
+  <div class="bg-white rounded shadow py-8 px-8 relative overflow-visible" style="width: 1000px;">
     <img 
       src="{{ asset('build/images/home-removebg.png') }}" 
       alt="Clown Titus" 
       style="
-        width: 450px;
+        width: 460px;
         height: auto;
         position: absolute;
-        left: -200px;
+        left: -150px;
         top: -200px;
         z-index: 10;
       "
     >
-    <div class="ml-[420px] mt-6">
-      <h2 class="text-3xl font-bold mb-4">Accueil : Texte de présentation</h2>
+    <div class="bg-white relative mx-auto " style="width: 800px; left:50px">
+      <h2 class="text-3xl font-bold mb-4">Bienvenue dans l’univers de Titus </h2>
       <p class="mb-4">
-        Bienvenue dans l’univers de Titus, un artiste clown et sculpteur de ballons dont la passion n’a d’égal que sa créativité. 
+        Un artiste clown et sculpteur de ballons dont la passion n’a d’égal que sa créativité. 
         Depuis plus de 15 ans, il émerveille les petits comme les grands avec des spectacles hauts en couleur, 
         un conte médiéval enchanteur et des sculptures de ballons époustouflantes.
       </p>
@@ -84,68 +84,6 @@
       </div>
     </div>
   </section>
-
-  {# --- Footer --- #}
-<footer class="bg-gray-800 text-white py-8">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
-      <!-- Colonne Informations de contact -->
-      <div class="mb-8 md:mb-0">
-        <h2 class="text-xl font-bold mb-4">ANIMATION SCULPTEUR DE BALLONS TITUS</h2>
-        <p class="mb-4">
-          EI SAELENS Thierry<br>
-          situé au Nord (59) de la France
-        </p>
-        <div class="flex items-center mb-2">
-          <!-- Icône téléphone sans width/height inline -->
-          <svg class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.21 1.11l-2.24 2.12z"/>
-          </svg>
-          <span>03.28.41.44.61 / 06.95.59.65.35</span>
-        </div>
-        <div class="flex items-center mb-2">
-          <!-- Icône email sans width/height inline -->
-          <svg class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/>
-          </svg>
-          <span>
-            <a href="mailto:titusanimations@gmail.com" class="underline hover:text-gray-300">
-              titusanimations@gmail.com
-            </a>
-          </span>
-        </div>
-        <p class="mb-2">N° S.I.R.E.T. : 514 694 124 00017</p>
-        <p class="italic">"TVA non applicable, article 293 B du CGI."</p>
-      </div>
-
-      <!-- Colonne Réseaux sociaux et Copyright -->
-      <div class="flex flex-col items-center md:items-end">
-        <div class="flex space-x-6 mb-4">
-          <!-- Icône Facebook (taille h-6 w-6) -->
-          <a href="#" class="hover:text-gray-400 transition">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22,12A10,10,0,1,0,10,22V14H7v-3h3V8a4,4,0,0,1,4-4h3v3H14a1,1,0,0,0-1,1v2h4l-1,3H13v8A10,10,0,0,0,22,12Z"/>
-            </svg>
-          </a>
-          <!-- Icône Twitter (taille h-6 w-6) -->
-          <a href="#" class="hover:text-gray-400 transition">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22.46,6c-.77.35-1.6.59-2.46.69a4.3,4.3,0,0,0,1.88-2.38,8.59,8.59,0,0,1-2.72,1A4.28,4.28,0,0,0,11.46,8,12.14,12.14,0,0,1,3,5.17a4.28,4.28,0,0,0,1.32,5.72,4.24,4.24,0,0,1-1.94-.53v.05a4.28,4.28,0,0,0,3.43,4.19,4.32,4.32,0,0,1-1.93.07,4.28,4.28,0,0,0,4,3A8.59,8.59,0,0,1,2,19.54,12.15,12.15,0,0,0,8.29,21c7.55,0,11.68-6.26,11.68-11.68,0-.18,0-.35,0-.53A8.36,8.36,0,0,0,22.46,6Z"/>
-            </svg>
-          </a>
-          <!-- Icône Instagram (taille h-6 w-6) -->
-          <a href="#" class="hover:text-gray-400 transition">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zM2 6c0-2.8 2.2-5 5-5h10c2.8 0 5 2.2 5 5v12c0 2.8-2.2 5-5 5H7c-2.8 0-5-2.2-5-5V6zm10 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm4-8.5c0 .7-.6 1.3-1.3 1.3S14.4 12.2 14.4 11.5s.6-1.3 1.3-1.3S17 10.8 17 11.5z"/>
-            </svg>
-          </a>
-        </div>
-        <p class="text-sm text-gray-400">&copy; {{ "now"|date("Y") }} Titus Animation. Tous droits réservés.</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
 
 
 
