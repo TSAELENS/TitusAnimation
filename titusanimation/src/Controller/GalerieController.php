@@ -15,7 +15,7 @@ class GalerieController extends AbstractController
     //         'controller_name' => 'GalerieController',
     //     ]);
     // }
-    #[Route('/galerie/photos', name: 'galerie_photos')]
+    #[Route('/galerie', name: 'galerie_photos')]
     public function photos(): Response
     {
         return $this->render('galerie/photos.html.twig');

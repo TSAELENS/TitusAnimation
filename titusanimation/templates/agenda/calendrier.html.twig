@@ -1,16 +1,79 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Agenda - Calendrier{% endblock %}
+{% block title %}Calendrier - Titus Animation{% endblock %}
 
 {% block body %}
-<section class="container mx-auto px-4 py-8">
-  <h1 class="text-4xl font-bold mb-6 text-center">Agenda - Calendrier</h1>
-  <p class="text-center text-gray-600 mb-8">Consultez notre calendrier pour connaître nos disponibilités et prochains événements.</p>
-  <div class="overflow-hidden rounded-lg shadow-lg">
-    {# Ici vous pouvez intégrer un plugin de calendrier tel que FullCalendar ou afficher un calendrier statique #}
-    <div id="calendar" class="w-full h-96 bg-white flex items-center justify-center">
-      <p class="text-gray-500">Calendrier à venir...</p>
+<div class="min-h-screen bg-white py-6">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl font-bold text-gray-800 mb-6">Calendrier</h1>
+
+    <!-- Légende -->
+    <div class="flex items-center space-x-6 mb-6">
+      <div class="flex items-center">
+        <div class="h-6 w-6 border border-gray-300"></div>
+        <span class="ml-2 text-gray-700">Case vide</span>
+      </div>
+      <div class="flex items-center">
+        <div class="h-6 w-6 bg-red-500"></div>
+        <span class="ml-2 text-gray-700">Pas disponible</span>
+      </div>
+      <div class="flex items-center">
+        <div class="h-6 w-6 bg-blue-500"></div>
+        <span class="ml-2 text-gray-700">Réservé <small>(lieu optionnel)</small></span>
+      </div>
+      <div class="flex items-center">
+        <div class="h-6 w-6 bg-green-500"></div>
+        <span class="ml-2 text-gray-700">Disponible</span>
+      </div>
+    </div>
+
+    <!-- En-tête des jours de la semaine -->
+    <div class="grid grid-cols-7 gap-2 mb-2 text-center font-bold">
+      <div>Lun</div>
+      <div>Mar</div>
+      <div>Mer</div>
+      <div>Jeu</div>
+      <div>Ven</div>
+      <div>Sam</div>
+      <div>Dim</div>
+    </div>
+
+    <!-- Calendrier (exemple statique) -->
+    <div class="grid grid-cols-7 gap-2">
+      {# On suppose ici que le mois débute un mercredi (2 cases vides en début) et se termine après 31 jours #}
+      {% for i in 1..42 %}
+        {% if i < 3 or i > 32 %}
+          <!-- Case vide -->
+          <div class="h-16 w-16 border border-gray-300"></div>
+        {% else %}
+          {# Calcul du numéro de jour (en tenant compte des 2 cases vides) #}
+          {% set day = i - 2 %}
+          {# Exemple de statuts pour certains jours (modifiable) :
+             - Rouge = pas disponible
+             - Bleu = réservé
+             - Vert = disponible (par défaut)
+          #}
+          {% set statuses = { 3: 'red', 5: 'blue', 8: 'green', 10: 'red', 12: 'blue', 15: 'blue', 18: 'green', 22: 'green', 27: 'red', 30: 'blue' } %}
+          {% set status = statuses[day] is defined ? statuses[day] : 'green' %}
+          {% if status == 'red' %}
+            {% set bgClass = 'bg-red-500' %}
+          {% elseif status == 'blue' %}
+            {% set bgClass = 'bg-blue-500' %}
+          {% elseif status == 'green' %}
+            {% set bgClass = 'bg-green-500' %}
+          {% else %}
+            {% set bgClass = 'bg-white' %}
+          {% endif %}
+          <div class="h-16 w-16 border border-gray-300 flex flex-col items-center justify-center text-white font-bold {{ bgClass }}">
+            <span>{{ day }}</span>
+            {% if status == 'blue' %}
+              {# Optionnel : afficher le lieu réservé (ou autre info) #}
+              <span class="text-xs">Lieu</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
-</section>
+</div>
 {% endblock %}

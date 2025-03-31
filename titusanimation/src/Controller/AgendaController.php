@@ -8,13 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AgendaController extends AbstractController
 {
-    // #[Route('/agenda', name: 'app_agenda')]
-    // public function index(): Response
-    // {
-    //     return $this->render('agenda/index.html.twig', [
-    //         'controller_name' => 'AgendaController',
-    //     ]);
-    // }
     #[Route('/agenda/affiches', name: 'agenda_affiches')]
     public function affiches(): Response
     {
@@ -26,5 +19,4 @@ class AgendaController extends AbstractController
     {
         return $this->render('agenda/calendrier.html.twig');
     }
-
 }

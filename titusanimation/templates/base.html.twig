@@ -7,6 +7,24 @@
     {% block stylesheets %}
       {{ encore_entry_link_tags('app') }}
     {% endblock %}
+    
+  <script data-turbo-permanent>
+  document.addEventListener('turbo:load', () => {
+    (function(){
+      if (!window.menuButtonInitialized) {
+        const menuButton = document.getElementById('mobile-menu-button');
+        if (menuButton) {
+          menuButton.addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+        window.menuButtonInitialized = true;
+      }
+    })();
+  });
+  </script>
+
   </head>
   <body class="min-h-screen flex flex-col">
     {# --- Barre de navigation --- #}
@@ -19,12 +37,12 @@
             <a href="{{ path('homepage') }}" class="text-gray-600 hover:text-gray-900 transition">Accueil</a>
           </li>
           <li class="relative group">
-            <a href="#" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+            <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
               Prestations
               <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
               </svg>
-            </a>
+            </span>
             <ul class="absolute left-0 top-full w-48 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
               <li><a href="{{ path('prestations_sur_scene') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sur scène</a></li>
               <li><a href="{{ path('prestations_sculpture_fixe') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sculpture fixe</a></li>
@@ -37,24 +55,24 @@
             <a href="{{ path('livre_dor') }}" class="text-gray-600 hover:text-gray-900 transition">Livre d’or</a>
           </li>
           <li class="relative group">
-            <a href="#" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+            <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
               Galerie
               <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
               </svg>
-            </a>
+            </span>
             <ul class="absolute left-0 top-full w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
               <li><a href="{{ path('galerie_photos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Photos</a></li>
               <li><a href="{{ path('galerie_videos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Vidéos</a></li>
             </ul>
           </li>
           <li class="relative group">
-            <a href="#" class="flex items-center text-gray-600 hover:text-gray-900 transition">
+            <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
               Agenda
               <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
               </svg>
-            </a>
+            </span>
             <ul class="absolute left-0 top-full w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
               <li><a href="{{ path('agenda_affiches') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Affiches</a></li>
               <li><a href="{{ path('agenda_calendrier') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Calendrier</a></li>
@@ -108,7 +126,7 @@
               <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Agenda</summary>
               <ul class="pl-4 mt-1 space-y-1">
                 <li><a href="{{ path('agenda_affiches') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Affiches</a></li>
-                <li><a href="{{ path('agenda_calendrier') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Calendrier</a></li>
+<li><a href="{{ path('agenda_calendrier') }}" data-turbo="false" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Calendrier</a></li>
               </ul>
             </details>
           </li>
@@ -117,13 +135,6 @@
           </li>
         </ul>
       </div>
-      <script>
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuButton.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-      </script>
     </nav>
 
     {# Contenu de chaque page #}
@@ -187,8 +198,6 @@
       </div>
     </footer>
 
-    {% block javascripts %}
-      {{ encore_entry_script_tags('app') }}
-    {% endblock %}
+    {# Nous avons retiré le bloc javascripts du footer pour éviter de charger à nouveau le bundle #}
   </body>
 </html>
