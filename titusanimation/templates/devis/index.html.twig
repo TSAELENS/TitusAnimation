@@ -3,18 +3,93 @@
 {% block title %}Devis - Titus Animation{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="min-h-screen flex items-center justify-center bg-white">
+  <div class="w-full max-w-lg">
+    <h1 class="text-3xl font-bold text-center mb-8">Demande de devis</h1>
+    <form action="#" method="post" class="space-y-6">
+      <!-- Choix du type de devis -->
+      <div>
+        <label for="type_devis" class="block text-gray-800 font-medium">Type de devis</label>
+        <select name="type_devis" id="type_devis" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="sur_scene" selected>Sur scène</option>
+          <option value="sculpture_fixe">Sculpture fixe</option>
+          <option value="sculpture_mobile">Sculpture mobile</option>
+          <option value="decoration">Décoration</option>
+          <option value="comte_medieval">Comte (médiéval)</option>
+        </select>
+      </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+      <!-- Champs communs -->
+      <div>
+        <label for="prenom" class="block text-gray-800 font-medium">Prénom</label>
+        <input type="text" name="prenom" id="prenom" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="nom" class="block text-gray-800 font-medium">Nom</label>
+        <input type="text" name="nom" id="nom" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="adresse" class="block text-gray-800 font-medium">Adresse</label>
+        <input type="text" name="adresse" id="adresse" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="coordonnees" class="block text-gray-800 font-medium">Coordonnées (Téléphone, Mail)</label>
+        <input type="text" name="coordonnees" id="coordonnees" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="lieu_animation" class="block text-gray-800 font-medium">Lieu de l’animation</label>
+        <input type="text" name="lieu_animation" id="lieu_animation" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="date" class="block text-gray-800 font-medium">Date</label>
+        <input type="date" name="date" id="date" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="heure" class="block text-gray-800 font-medium">Heure</label>
+        <input type="time" name="heure" id="heure" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="contact_jour_j" class="block text-gray-800 font-medium">Contact pour le jour j</label>
+        <input type="text" name="contact_jour_j" id="contact_jour_j" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/SiteWeb/TitusAnimation/titusanimation/src/Controller/DevisController.php'|file_link(0) }}">src/Controller/DevisController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/SiteWeb/TitusAnimation/titusanimation/templates/devis/index.html.twig'|file_link(0) }}">templates/devis/index.html.twig</a></code></li>
-    </ul>
+      <!-- Champs conditionnels -->
+      <div id="champs_espace_scene" class="hidden">
+        <label for="espace_scene" class="block text-gray-800 font-medium">Espace scénique</label>
+        <input type="text" name="espace_scene" id="espace_scene" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div id="champs_duree" class="hidden">
+        <label for="duree" class="block text-gray-800 font-medium">Durée</label>
+        <input type="text" name="duree" id="duree" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div>
+        <label for="infos_complementaires" class="block text-gray-800 font-medium">Informations complémentaires</label>
+        <textarea name="infos_complementaires" id="infos_complementaires" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      </div>
+
+
+
+      <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition">Envoyer</button>
+    </form>
+  </div>
 </div>
+
+<script>
+  function updateConditionalFields() {
+    var type = document.getElementById('type_devis').value;
+    document.getElementById('champs_espace_scene').classList.add('hidden');
+    document.getElementById('champs_duree').classList.add('hidden');
+
+    if (type === 'sur_scene' || type === 'comte_medieval') {
+      document.getElementById('champs_espace_scene').classList.remove('hidden');
+    } else if (type === 'sculpture_fixe' || type === 'sculpture_mobile') {
+      document.getElementById('champs_duree').classList.remove('hidden');
+    }
+  }
+
+  document.getElementById('type_devis').addEventListener('change', updateConditionalFields);
+  // Appel initial pour afficher le champ correspondant à la valeur sélectionnée par défaut
+  updateConditionalFields();
+</script>
 {% endblock %}
