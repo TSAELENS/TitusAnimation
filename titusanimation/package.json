@@ -28,6 +28,11 @@
     "webpack-notifier": "^1.15.0"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/list": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
     "@tailwindcss/postcss": "^4.0.7",
     "core-js": "^3.40.0",
     "postcss-loader": "^8.1.1"
