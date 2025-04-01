@@ -18,5 +18,6 @@ class AgendaController extends AbstractController
     public function calendrier(): Response
     {
         return $this->render('agenda/calendrier.html.twig');
+
     }
 }
