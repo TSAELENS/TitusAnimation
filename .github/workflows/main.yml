@@ -27,3 +27,4 @@ jobs:
           git config git-ftp.password "$FTP_PASSWORD"
           cd titusanimation
           git ftp push --auto-init
+
