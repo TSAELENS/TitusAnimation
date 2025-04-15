@@ -1,25 +1,11 @@
-# Node
 node_modules/
-npm-debug.log
-yarn-error.log
-
-# Symfony
-/titusanimation/var/
-/titusanimation/vendor/
-/titusanimation/.env.local
-/titusanimation/.env.local.php
-/titusanimation/.env.test
-/titusanimation/.env.dev
-
-# IDE
+var/
+vendor/
+.env.local
+.env.local.php
+.env.test
+.env.dev
+public/build/
 .idea/
 .vscode/
-
-# Mac
 .DS_Store
-
-# Logs
-*.log
-
-# Front build
-/titusanimation/public/build/
