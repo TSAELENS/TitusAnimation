@@ -1,0 +1,17 @@
+# Dépendances qu'on n'upload pas (tu les ajoutes toi-même sur le FTP)
+vendor/
+public/build/
+node_modules/
+
+# Fichiers sensibles / config privée
+.env*
+.env.local.php
+
+# Outils de dev / IDE / CI
+.idea/
+.vscode/
+.github/
+.gitignore
+.git-ftp-ignore
+build.sh
+tests/
