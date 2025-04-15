@@ -1,4 +1,4 @@
-name: Force deploy Symfony to OVH /www (with state cache)
+name: Deploy Symfony to OVH /www (with .git-ftp.log cache)
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: 💾 Restore previous git-ftp state (first time will be empty)
+      - name: 💾 Restore previous git-ftp state
         uses: actions/cache@v3
         with:
           path: .git-ftp.log
@@ -24,7 +24,7 @@ jobs:
       - name: 🔧 Install git-ftp
         run: sudo apt-get update && sudo apt-get install -y git-ftp
 
-      - name: 🚀 FORCE Deploy to OVH /www
+      - name: 🚀 Deploy to OVH /www
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -33,7 +33,8 @@ jobs:
           git config git-ftp.url "ftp://$FTP_SERVER/www"
           git config git-ftp.user "$FTP_USERNAME"
           git config git-ftp.password "$FTP_PASSWORD"
-          git ftp push --force
+          git config git-ftp.syncroot .
+          git ftp push
 
       - name: 💾 Save git-ftp state
         uses: actions/cache/save@v3
