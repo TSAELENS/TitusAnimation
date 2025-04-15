@@ -52,3 +52,6 @@
 /.web-server-pid
 titusanimation/.env
 .DS_Store
+
+.idea/
+*.log
