@@ -31,3 +31,5 @@ yarn-error.log
 /node_modules
 /var
 /.env
+/.env.dev
+/.env.test
