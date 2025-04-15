@@ -22,7 +22,8 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
+          cd titusanimation
           git config git-ftp.url "ftp://$FTP_SERVER/www"
           git config git-ftp.user "$FTP_USERNAME"
           git config git-ftp.password "$FTP_PASSWORD"
-          git ftp push --auto-init --workdir=./titusanimation
+          git ftp push --auto-init
