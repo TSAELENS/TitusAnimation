@@ -52,3 +52,5 @@ jobs:
             .github/*
             tests*
             README.md
+            var/cache/*
+
