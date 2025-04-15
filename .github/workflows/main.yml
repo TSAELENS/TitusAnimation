@@ -1,4 +1,4 @@
-name: Deploy Symfony to OVH /www (final fix with full history)
+name: Deploy Symfony to OVH /www 
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
+      - name: 📥 Checkout code (full history)
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -18,18 +18,18 @@ jobs:
       - name: 🔧 Install git-ftp
         run: sudo apt-get update && sudo apt-get install -y git-ftp
 
-      - name: 💾 Download remote .git-ftp.log
+      - name: 💾 Retrieve .git-ftp.log from remote server
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          echo "📡 Téléchargement de .git-ftp.log depuis le FTP..."
-          curl --fail -s -u "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/www/.git-ftp.log" -o .git-ftp.log || echo "⚠️ Aucun fichier .git-ftp.log trouvé"
-          echo "📄 SHA1 récupéré :"
-          cat .git-ftp.log || echo "❌ Fichier vide"
+          echo "📡 Downloading .git-ftp.log from FTP..."
+          curl --fail -s -u "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/www/.git-ftp.log" -o .git-ftp.log || echo "⚠️ No .git-ftp.log found"
+          echo "📄 Content of .git-ftp.log:"
+          cat .git-ftp.log || echo "❌ File is empty or missing"
 
-      - name: 🚀 Déploiement vers OVH /www
+      - name: 🚀 Deploy to OVH /www via git-ftp
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
