@@ -25,4 +25,4 @@ jobs:
           git config git-ftp.url "ftp://$FTP_SERVER/www"
           git config git-ftp.user "$FTP_USERNAME"
           git config git-ftp.password "$FTP_PASSWORD"
-          git ftp push --workdir=./titusanimation --auto-init
+          git ftp push --auto-init --workdir=./titusanimation
