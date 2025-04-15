@@ -1,4 +1,4 @@
-name: Deploy Symfony to OVH /www (with .git-ftp.log cache)
+name: Deploy Symfony to OVH /www (remote log sync)
 
 on:
   push:
@@ -13,16 +13,16 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: 💾 Restore previous git-ftp state
-        uses: actions/cache@v3
-        with:
-          path: .git-ftp.log
-          key: ${{ runner.os }}-git-ftp-log
-          restore-keys: |
-            ${{ runner.os }}-git-ftp-log
-
       - name: 🔧 Install git-ftp
         run: sudo apt-get update && sudo apt-get install -y git-ftp
+
+      - name: 💾 Download remote .git-ftp.log
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          curl -u "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/www/.git-ftp.log" -o .git-ftp.log || echo "No log found"
 
       - name: 🚀 Deploy to OVH /www
         env:
@@ -34,10 +34,4 @@ jobs:
           git config git-ftp.user "$FTP_USERNAME"
           git config git-ftp.password "$FTP_PASSWORD"
           git config git-ftp.syncroot .
-          git ftp push --force
-
-      - name: 💾 Save git-ftp state
-        uses: actions/cache/save@v3
-        with:
-          path: .git-ftp.log
-          key: ${{ runner.os }}-git-ftp-log
+          git ftp push
