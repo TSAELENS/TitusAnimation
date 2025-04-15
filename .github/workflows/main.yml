@@ -13,17 +13,9 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: 🧰 Setup PHP with Composer
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          extensions: mbstring, intl, pdo, pdo_mysql
-          tools: composer
-
       - name: ⚙️ Install Composer dependencies (prod)
-        working-directory: ./titusanimation/
-        run: |
-          composer install --no-dev --optimize-autoloader
+        working-directory: ./titusanimation
+        run: APP_ENV=prod composer install --no-dev --optimize-autoloader
 
       - name: 🚀 Deploy public/ to OVH /www/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -33,6 +25,13 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /www/
           local-dir: ./titusanimation/public/
+          state-name: deploy-public-state.json
+          exclude: |
+            .git*
+            node_modules*
+            tests*
+            var/cache/**
+            var/log/**
 
       - name: 📦 Deploy Symfony core to OVH /symfony-app/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -42,15 +41,12 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /symfony-app/
           local-dir: ./titusanimation/
+          state-name: deploy-core-state.json
           exclude: |
             .git*
             node_modules*
-            vendor*
-            var*
-            public/*
-            .env*
-            .github/*
             tests*
-            README.md
-            var/cache/*
-
+            public/*
+            .github/*
+            var/cache/**
+            var/log/**
