@@ -32,6 +32,7 @@ jobs:
             tests*
             var/cache/**
             var/log/**
+            vendor/**
 
       - name: 📦 Deploy Symfony core to OVH /symfony-app/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -50,3 +51,4 @@ jobs:
             .github/*
             var/cache/**
             var/log/**
+            vendor/**
