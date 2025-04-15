@@ -22,6 +22,7 @@ jobs:
           server-dir: /www/
           local-dir: ./titusanimation/
           state-name: deploy-complete.json
+          log-level: verbose
           exclude: |
             .git*
             node_modules*
