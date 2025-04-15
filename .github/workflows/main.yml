@@ -16,7 +16,7 @@ jobs:
       - name: 🔧 Install git-ftp
         run: sudo apt-get update && sudo apt-get install -y git-ftp
 
-      - name: 🚀 Deploy with git-ftp to OVH
+      - name: 🚀 Deploy the contents of titusanimation/ to OVH /www/
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -25,6 +25,4 @@ jobs:
           git config git-ftp.url "ftp://$FTP_SERVER/www"
           git config git-ftp.user "$FTP_USERNAME"
           git config git-ftp.password "$FTP_PASSWORD"
-          cd titusanimation
-          git ftp push --auto-init
-
+          git ftp push --workdir=./titusanimation --auto-init
