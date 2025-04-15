@@ -1,0 +1,41 @@
+name: Deploy Symfony to OVH
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Install Composer dependencies (prod only)
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: 🚀 Deploy public/ to OVH /www/
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /www/
+          local-dir: ./public
+
+      - name: 📦 Deploy Symfony core to OVH /symfony-app/
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /symfony-app/
+          local-dir: .
+          exclude: |
+            .git*
+            node_modules*
+            public/*
+            .github/*
+            tests*
