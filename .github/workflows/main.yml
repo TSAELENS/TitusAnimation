@@ -34,7 +34,7 @@ jobs:
           git config git-ftp.user "$FTP_USERNAME"
           git config git-ftp.password "$FTP_PASSWORD"
           git config git-ftp.syncroot .
-          git ftp push
+          git ftp push --force
 
       - name: 💾 Save git-ftp state
         uses: actions/cache/save@v3
