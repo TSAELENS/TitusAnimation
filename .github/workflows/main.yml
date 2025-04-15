@@ -1,4 +1,4 @@
-name: Deploy full Symfony to OVH (/www)
+name: Deploy Symfony to OVH (/www/symfony)
 
 on:
   push:
@@ -13,15 +13,17 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: 🚀 Deploy all of Symfony to OVH /www/
+      - name: 🚀 Deploy Symfony to OVH /www/symfony/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /www/
+          server-dir: /www/symfony/
           local-dir: ./titusanimation/
-          state-name: deploy-complete.json
+          state-name: deploy-symfony.json
+          dangerous-clean-slate: true
+          passive: true
           log-level: verbose
           exclude: |
             .git*
