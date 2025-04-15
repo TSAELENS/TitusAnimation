@@ -16,13 +16,18 @@ jobs:
       - name: 🔧 Install git-ftp
         run: sudo apt-get update && sudo apt-get install -y git-ftp
 
-      - name: 💾 Download remote .git-ftp.log
+      - name: 💾 Download remote .git-ftp.log (debug)
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          curl -u "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/www/.git-ftp.log" -o .git-ftp.log || echo "No log found"
+          echo "📡 Récupération de .git-ftp.log..."
+          curl --fail -s -u "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/www/.git-ftp.log" -o .git-ftp.log || echo "⚠️ .git-ftp.log introuvable ou inaccessible"
+          echo "📂 Contenu du dossier après téléchargement :"
+          ls -la
+          echo "📄 Contenu de .git-ftp.log si présent :"
+          cat .git-ftp.log || echo "❌ Fichier non trouvé"
 
       - name: 🚀 Deploy to OVH /www
         env:
