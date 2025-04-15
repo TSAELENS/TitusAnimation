@@ -1,4 +1,4 @@
-name: Deploy Symfony to OVH /www (final version with remote log)
+name: Deploy Symfony to OVH /www (final, stable, sans --input)
 
 on:
   push:
@@ -22,12 +22,12 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          echo "📡 Récupération du .git-ftp.log depuis le FTP distant..."
-          curl --fail -s -u "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/www/.git-ftp.log" -o .git-ftp.log || echo "⚠️ .git-ftp.log introuvable"
-          echo "📄 Contenu de .git-ftp.log :"
+          echo "📡 Téléchargement de .git-ftp.log depuis le FTP..."
+          curl --fail -s -u "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_SERVER/www/.git-ftp.log" -o .git-ftp.log || echo "⚠️ Aucun fichier .git-ftp.log trouvé"
+          echo "📄 SHA1 récupéré :"
           cat .git-ftp.log || echo "❌ Fichier vide"
 
-      - name: 🚀 Deploy to OVH /www
+      - name: 🚀 Déploiement vers OVH /www
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -37,4 +37,4 @@ jobs:
           git config git-ftp.user "$FTP_USERNAME"
           git config git-ftp.password "$FTP_PASSWORD"
           git config git-ftp.syncroot .
-          git ftp push --input=.git-ftp.log
+          git ftp push
