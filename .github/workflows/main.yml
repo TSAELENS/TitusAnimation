@@ -1,4 +1,4 @@
-name: Deploy Symfony to OVH
+name: Deploy Symfony to OVH (Optimisé)
 
 on:
   push:
@@ -12,10 +12,6 @@ jobs:
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v3
-
-      - name: ⚙️ Install Composer dependencies (prod)
-        working-directory: ./titusanimation
-        run: APP_ENV=prod composer install --no-dev --optimize-autoloader
 
       - name: 🚀 Deploy public/ to OVH /www/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -32,7 +28,6 @@ jobs:
             tests*
             var/cache/**
             var/log/**
-            vendor/**
 
       - name: 📦 Deploy Symfony core to OVH /symfony-app/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -51,4 +46,3 @@ jobs:
             .github/*
             var/cache/**
             var/log/**
-            vendor/**
