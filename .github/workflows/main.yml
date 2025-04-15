@@ -22,6 +22,8 @@ jobs:
           server-dir: /www/
           local-dir: ./titusanimation/public/
           state-name: deploy-public-state.json
+          dangerous-clean-slate: true
+          passive: true
           exclude: |
             .git*
             node_modules*
@@ -39,6 +41,8 @@ jobs:
           server-dir: /symfony-app/
           local-dir: ./titusanimation/
           state-name: deploy-core-state.json
+          dangerous-clean-slate: true
+          passive: true
           exclude: |
             .git*
             node_modules*
