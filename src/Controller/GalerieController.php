@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\ImageGalleryRepository;
+use App\Repository\VideoGalleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,14 +18,22 @@ class GalerieController extends AbstractController
     //     ]);
     // }
     #[Route('/galerie', name: 'galerie_photos')]
-    public function photos(): Response
+    public function photos(ImageGalleryRepository $imageGalleryRepository): Response
     {
-        return $this->render('galerie/photos.html.twig');
+        $images = $imageGalleryRepository->findAll();
+
+        return $this->render('galerie/photos.html.twig', [
+            'images' => $images,
+        ]);
     }
-    
+
     #[Route('/galerie/videos', name: 'galerie_videos')]
-    public function videos(): Response
+    public function videos(VideoGalleryRepository $videoGalleryRepository): Response
     {
-        return $this->render('galerie/videos.html.twig');
+        $videos = $videoGalleryRepository->findAll();
+
+        return $this->render('galerie/videos.html.twig', [
+            'videos' => $videos,
+        ]);
     }
 }
