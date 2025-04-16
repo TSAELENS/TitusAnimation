@@ -65,7 +65,7 @@ class DevisController extends AbstractController
                     'status' => $response->getStatus(),
                     'data' => $response->getData()
                 ]);
-                $this->addFlash('error', 'Une erreur est survenue lors de l’envoi du mail.');
+                $this->addFlash('danger', 'Une erreur est survenue lors de l’envoi du mail.');
             } else {
                 $logger->info('Mail envoyé avec succès.');
                 $this->addFlash('success', 'Demande envoyée avec succès.');
