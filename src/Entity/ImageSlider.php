@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\ImageSliderRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ImageSliderRepository::class)]
+#[Vich\Uploadable]
 class ImageSlider
 {
     #[ORM\Id]
@@ -25,6 +28,12 @@ class ImageSlider
     #[ORM\Column(length: 50)]
     private ?string $slider = null;
 
+    #[Vich\UploadableField(mapping: "slider_images", fileNameProperty: "url")]
+    private ?File $imageFile = null;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -38,7 +47,6 @@ class ImageSlider
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
-
         return $this;
     }
 
@@ -47,10 +55,9 @@ class ImageSlider
         return $this->url;
     }
 
-    public function setUrl(string $url): static
+    public function setUrl(?string $url): static
     {
         $this->url = $url;
-
         return $this;
     }
 
@@ -62,7 +69,6 @@ class ImageSlider
     public function setPosition(int $position): static
     {
         $this->position = $position;
-
         return $this;
     }
 
@@ -74,7 +80,31 @@ class ImageSlider
     public function setSlider(string $slider): static
     {
         $this->slider = $slider;
+        return $this;
+    }
 
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if ($imageFile !== null) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 }
