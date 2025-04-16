@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommentaireRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Commentaire
 {
     #[ORM\Id]
@@ -15,19 +16,27 @@ class Commentaire
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $Contenu = null;
+    private ?string $contenu = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $DateCreation = null;
+    private ?\DateTimeImmutable $dateCreation = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Auteur = null;
+    private ?string $auteur = null;
 
     #[ORM\Column]
-    private ?bool $EstPublie = null;
+    private ?bool $estPublie = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $DateValidation = null;
+    private ?\DateTimeInterface $dateValidation = null;
+    
+    #[ORM\PrePersist]
+    public function setDateCreationOnPrePersist(): void
+    {
+        if ($this->dateCreation === null) {
+            $this->dateCreation = new \DateTimeImmutable();
+        }
+    }
 
     public function getId(): ?int
     {
@@ -36,61 +45,74 @@ class Commentaire
 
     public function getContenu(): ?string
     {
-        return $this->Contenu;
+        return $this->contenu;
     }
 
-    public function setContenu(string $Contenu): static
+    public function setContenu(string $contenu): static
     {
-        $this->Contenu = $Contenu;
+        $this->contenu = $contenu;
 
         return $this;
     }
 
     public function getDateCreation(): ?\DateTimeImmutable
     {
-        return $this->DateCreation;
+        return $this->dateCreation;
     }
 
-    public function setDateCreation(\DateTimeImmutable $DateCreation): static
+    public function setDateCreation(\DateTimeImmutable $dateCreation): static
     {
-        $this->DateCreation = $DateCreation;
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }
 
     public function getAuteur(): ?string
     {
-        return $this->Auteur;
+        return $this->auteur;
     }
 
-    public function setAuteur(string $Auteur): static
+    public function setAuteur(string $auteur): static
     {
-        $this->Auteur = $Auteur;
+        $this->auteur = $auteur;
 
         return $this;
     }
 
     public function isEstPublie(): ?bool
     {
-        return $this->EstPublie;
+        return $this->estPublie;
     }
 
-    public function setEstPublie(bool $EstPublie): static
+    public function setEstPublie(bool $estPublie): static
     {
-        $this->EstPublie = $EstPublie;
+        $this->estPublie = $estPublie;
 
         return $this;
     }
 
     public function getDateValidation(): ?\DateTimeInterface
     {
-        return $this->DateValidation;
+        return $this->dateValidation;
     }
 
-    public function setDateValidation(?\DateTimeInterface $DateValidation): static
+    public function setDateValidation(?\DateTimeInterface $dateValidation): static
     {
-        $this->DateValidation = $DateValidation;
+        $this->dateValidation = $dateValidation;
 
         return $this;
+    }
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function updateDateValidation(): void
+    {
+        if ($this->estPublie && $this->dateValidation === null) {
+            $this->dateValidation = new \DateTime();
+        }
+
+        if (!$this->estPublie) {
+            $this->dateValidation = null; // facultatif si tu veux l'effacer si on dévalide
+        }
     }
 }

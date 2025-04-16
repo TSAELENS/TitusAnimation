@@ -14,16 +14,16 @@ class ImageSlider
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Nom = null;
+    private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Url = null;
+    private ?string $url = null;
 
     #[ORM\Column]
-    private ?int $Position = null;
+    private ?int $position = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $Slider = null;
+    private ?string $slider = null;
 
     public function getId(): ?int
     {
@@ -32,48 +32,48 @@ class ImageSlider
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): static
+    public function setNom(string $nom): static
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getUrl(): ?string
     {
-        return $this->Url;
+        return $this->url;
     }
 
-    public function setUrl(string $Url): static
+    public function setUrl(string $url): static
     {
-        $this->Url = $Url;
+        $this->url = $url;
 
         return $this;
     }
 
     public function getPosition(): ?int
     {
-        return $this->Position;
+        return $this->position;
     }
 
-    public function setPosition(int $Position): static
+    public function setPosition(int $position): static
     {
-        $this->Position = $Position;
+        $this->position = $position;
 
         return $this;
     }
 
     public function getSlider(): ?string
     {
-        return $this->Slider;
+        return $this->slider;
     }
 
-    public function setSlider(string $Slider): static
+    public function setSlider(string $slider): static
     {
-        $this->Slider = $Slider;
+        $this->slider = $slider;
 
         return $this;
     }
