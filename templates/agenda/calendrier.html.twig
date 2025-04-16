@@ -3,36 +3,28 @@
 {% block title %}Calendrier - Titus Animation{% endblock %}
 
 {% block body %}
-<div class="container mx-auto px-4 py-6">
+<div class="container mx-auto px-4 py-6 text-center">
   <h1 class="text-4xl font-bold text-gray-800 mb-4">Calendrier</h1>
-  <div id="calendar"></div>
+
+  <div class="flex justify-center">
+    <div id="calendar" class="mb-6 inline-block"></div>
+  </div>
+
+  <div class="flex justify-center gap-6 text-sm mt-4">
+    <div class="flex items-center gap-2">
+      <span class="w-4 h-4 bg-green-600 rounded-full inline-block"></span> Disponible
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="w-4 h-4 bg-yellow-400 rounded-full inline-block"></span> Réservé
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="w-4 h-4 bg-gray-400 rounded-full inline-block"></span> Fermé
+    </div>
+  </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialisation de FullCalendar dans le conteneur #calendar
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      // Déclarez les plugins dont vous avez besoin (assurez-vous de les avoir installés via npm ou via CDN)
-      plugins: [ 'dayGrid', 'timeGrid', 'list' ],
-      initialView: 'dayGridMonth',
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,listWeek'
-      },
-      // Pour charger des événements depuis une API, décommentez et adaptez le bloc suivant :
-      /*
-      events: {
-        url: '{{ path("api_events") }}',
-        method: 'GET',
-        failure: function() {
-          alert('Erreur lors du chargement des événements.');
-        }
-      },
-      */
-    });
-    calendar.render();
-  });
-</script>
+
+  {{ encore_entry_link_tags('calendar') }}
+  {{ encore_entry_script_tags('calendar') }}
+
 {% endblock %}
