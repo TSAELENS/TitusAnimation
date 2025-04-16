@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Commentaire;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -15,6 +16,19 @@ class CommentaireCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Commentaire::class;
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('Commentaire')
+            ->setEntityLabelInPlural('Commentaires')
+            ->setPageTitle(Crud::PAGE_INDEX, 'Gestion des commentaires')
+            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un nouveau Commentaire')
+            ->setPageTitle(Crud::PAGE_EDIT, fn ($entity) => sprintf('Modifier « %s »', $entity->getTitre()))
+            ->setPageTitle(Crud::PAGE_DETAIL, fn ($entity) => sprintf('Détail de « %s »', $entity->getTitre()))
+            ->setPaginatorPageSize(20)
+            ->showEntityActionsInlined(); // optionnel pour style + lisible
     }
 
     public function configureFields(string $pageName): iterable
