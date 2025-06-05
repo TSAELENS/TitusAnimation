@@ -15,7 +15,7 @@
           <option value="sculpture_fixe">Sculpture fixe</option>
           <option value="sculpture_mobile">Sculpture mobile</option>
           <option value="decoration">Décoration</option>
-          <option value="comte_medieval">Comte (médiéval)</option>
+          <option value="conte_medieval">Conte (médiéval)</option>
         </select>
       </div>
 
@@ -81,7 +81,7 @@
     document.getElementById('champs_espace_scene').classList.add('hidden');
     document.getElementById('champs_duree').classList.add('hidden');
 
-    if (type === 'sur_scene' || type === 'comte_medieval') {
+    if (type === 'sur_scene' || type === 'conte_medieval') {
       document.getElementById('champs_espace_scene').classList.remove('hidden');
     } else if (type === 'sculpture_fixe' || type === 'sculpture_mobile') {
       document.getElementById('champs_duree').classList.remove('hidden');

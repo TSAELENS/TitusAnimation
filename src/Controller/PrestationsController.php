@@ -32,9 +32,9 @@ class PrestationsController extends AbstractController
         return $this->render('prestations/decoration.html.twig');
     }
 
-    #[Route('/prestations/comte', name: 'prestations_comte')]
-    public function comte(): Response
+    #[Route('/prestations/conte', name: 'prestations_conte')]
+    public function conte(): Response
     {
-        return $this->render('prestations/comte.html.twig');
+        return $this->render('prestations/conte.html.twig');
     }
 }
