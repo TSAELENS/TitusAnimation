@@ -4,9 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const calendarEl = document.querySelector('#calendar');
   if (!calendarEl) return;
 
-  // Init calendrier
-  const calendar = jsCalendar.new(calendarEl, new Date());
-
   // Données statiques (à remplacer plus tard par ton fetch)
   const data = {
     "2025-04-03": "disponible",
@@ -19,15 +16,37 @@ document.addEventListener('DOMContentLoaded', () => {
     "2025-05-08": "disponible"
   };
 
-  // Appliquer les classes selon l'état de chaque date visible
-  calendar.onDateRender(function(date, element) {
-    const dateStr = date.toISOString().split('T')[0];
-    const etat = data[dateStr];
 
+  // --- Initialisation du calendrier
+  const calendar = jsCalendar.new(calendarEl, new Date());
+
+  // Appliquer les classes selon les dispos
+  calendar.onDateRender((date, element) => {
+    // Masquer les jours hors du mois courant
+    if (!calendar.isInMonth(date)) {
+      element.style.display = 'none';
+      return;
+    }
+
+    // Formater la date en YYYY-MM-DD
+    const dateStr = date.toISOString().split('T')[0];
+
+    // Appliquer la classe selon l'état (si trouvé)
+    const etat = data[dateStr];
     if (etat) {
       element.classList.add(`etat-${etat}`);
     }
   });
-  calendar.refresh();
 
+  // Gérer le clic sur une date
+  calendar.onDateClick((event, date) => {
+    // Supprimer l'ancienne sélection
+    document.querySelectorAll('.jsCalendar td.selected').forEach(el => el.classList.remove('selected'));
+    // Marquer la nouvelle
+    event.target.classList.add('selected');
+  });
+
+  // Forcer le rendu initial
+  calendar.refresh();
 });
+

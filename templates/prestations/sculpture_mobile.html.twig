@@ -1,14 +1,54 @@
-{# templates/prestations/sculpture_mobile.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Prestations - Sculpture mobile{% endblock %}
+{% block title %}Prestations – Sculpture mobile{% endblock %}
 
 {% block body %}
-<section class="container mx-auto px-4 py-8">
-  <h1 class="text-4xl font-bold mb-4">Prestations : Sculpture mobile</h1>
-  <p class="mb-4">
-    Nos sculptures mobiles en ballon se déplacent et apportent une dynamique surprenante à vos événements.
-  </p>
-  {# Intègre ici des images ou vidéos montrant le mouvement #}
-</section>
+  <div class="flex flex-col flex-grow">
+    <section class="flex-grow pt-28 pb-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center mb-12">
+          <div class="md:w-2/3">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Prestations : Sculpture mobile</h1>
+            <p class="text-gray-700 mb-6">
+              Nos sculptures mobiles en ballon se déplacent et apportent une dynamique surprenante à vos événements. 
+              Personnages géants et structures ambulantes pour animer vos fêtes et festivals.
+            </p>
+          </div>
+          <div class="md:w-1/3 text-center md:text-right">
+            <a 
+              href="{{ path('devis', { type: 'sculpture_mobile' }) }}" 
+              class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
+            >
+              Demander un devis
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img 
+              src="{{ asset('build/images/prestations/sculpture_mobile1.jpg') }}" 
+              alt="Sculpture mobile 1" 
+              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
+            >
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img 
+              src="{{ asset('build/images/prestations/sculpture_mobile2.jpg') }}" 
+              alt="Sculpture mobile 2" 
+              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
+            >
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img 
+              src="{{ asset('build/images/prestations/sculpture_mobile3.jpg') }}" 
+              alt="Sculpture mobile 3" 
+              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
+            >
+          </div>
+          <!-- … -->
+        </div>
+      </div>
+    </section>
+  </div>
 {% endblock %}

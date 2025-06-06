@@ -14,7 +14,7 @@ class HomepageController extends AbstractController
     // #[Route('/prestations/sculpture-fixe', name: 'prestations_sculpture_fixe')]
     // #[Route('/prestations/sculpture-mobile', name: 'prestations_sculpture_mobile')]
     // #[Route('/prestations/decoration', name: 'prestations_decoration')]
-    // #[Route('/prestations/comte', name: 'prestations_comte')]
+    // #[Route('/prestations/conte', name: 'prestations_conte')]
     // #[Route('/livre-dor', name: 'livre_dor')]
     // #[Route('/galerie/photos', name: 'galerie_photos')]
     // #[Route('/galerie/videos', name: 'galerie_videos')]
