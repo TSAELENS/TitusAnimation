@@ -77,14 +77,14 @@ var jsCalendar = (function(){
         // Default English language
         en : {
             // Months Names
-            // months : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            months: [
-                    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-                    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
-            ],
+            months : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            // months: [
+            //         "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+            //         "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+            // ],
             // Days Names
-            // days : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            days : ['Dimanche','Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
+            days : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            // days : ['Dimanche','Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
             // Default handlers
             _dateStringParser : function(key, date) {return JsCalendar._defaultDateStringParser(key, date, this);},
             _dayStringParser : function(key, date) {return JsCalendar._defaultDayStringParser(key, date, this);}

@@ -18,20 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- Initialisation du calendrier
-  const calendar = jsCalendar.new(calendarEl, new Date());
+  const calendar = jsCalendar.new(calendarEl, new Date(), {firstDayOfTheWeek: 2});
 
   // Appliquer les classes selon les dispos
   calendar.onDateRender((date, element) => {
-    // Masquer les jours hors du mois courant
-    if (!calendar.isInMonth(date)) {
-      element.style.display = 'none';
-      return;
-    }
-
-    // Formater la date en YYYY-MM-DD
-    const dateStr = date.toISOString().split('T')[0];
-
-    // Appliquer la classe selon l'état (si trouvé)
+    const dateStr = date.toISOString().slice(0,10);
     const etat = data[dateStr];
     if (etat) {
       element.classList.add(`etat-${etat}`);
