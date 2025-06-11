@@ -14,22 +14,22 @@ class PrestationsController extends AbstractController
         return $this->render('prestations/sur_scene.html.twig');
     }
 
-    #[Route('/prestations/sculpture-fixe', name: 'prestations_sculpture_fixe')]
-    public function sculptureFixe(): Response
+    #[Route('/prestations/sculpture-clown', name: 'prestations_sculpture_clown')]
+    public function sculptureClown(): Response
     {
-        return $this->render('prestations/sculpture_fixe.html.twig');
+        return $this->render('prestations/sculpture_clown.html.twig');
     }
 
-    #[Route('/prestations/sculpture-mobile', name: 'prestations_sculpture_mobile')]
-    public function sculptureMobile(): Response
+    #[Route('/prestations/sculpture-conte', name: 'prestations_sculpture_conte')]
+    public function sculptureConte(): Response
     {
-        return $this->render('prestations/sculpture_mobile.html.twig');
+        return $this->render('prestations/sculpture_conte.html.twig');
     }
 
-    #[Route('/prestations/decoration', name: 'prestations_decoration')]
-    public function decoration(): Response
+    #[Route('/prestations/autres', name: 'prestations_autres')]
+    public function autres(): Response
     {
-        return $this->render('prestations/decoration.html.twig');
+        return $this->render('prestations/autres.html.twig');
     }
 
     #[Route('/prestations/conte', name: 'prestations_conte')]

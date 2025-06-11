@@ -3,51 +3,93 @@
 {% block title %}Prestations – Sur scène{% endblock %}
 
 {% block body %}
-  <div class="flex flex-col flex-grow">
-    <section class="flex-grow pt-28 pb-12">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center mb-12">
-          <div class="md:w-2/3">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Prestations : Sur scène</h1>
-            <p class="text-gray-700 mb-6">
-              Découvrez nos animations sur scène où l’art du ballon prend vie devant un public en direct. 
-              Spectacles interactifs, tours de magie ballon et numéros comiques pour petits et grands.
-            </p>
-          </div>
-          <div class="md:w-1/3 text-center md:text-right">
-            <a 
-              href="{{ path('devis', { type: 'sur_scene'}) }}" 
-              class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
-            >
-              Demander un devis
-            </a>
-          </div>
+  <div class="flex flex-col min-h-screen bg-gray-50">
+    <section class="pt-20 pb-16 bg-gradient-to-b from-white to-gray-100">
+      <div class="container mx-auto px-6 lg:px-8">
+
+        <!-- En-tête -->
+        <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
+          <h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Spectacle sur scène<br>
+            <span class="text-indigo-600">« Le grenier magique de Monsieur Ballons »</span>
+          </h1>
+          <a href="{{ path('devis', { type: 'sur_scene' }) }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
+            Demander un devis
+          </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/sur_scene1.jpg') }}" 
-              alt="Animation sur scène 1" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+        <!-- Sections modernes intégrant le texte original -->
+        <div class="space-y-16">
+
+          <!-- Présentation générale -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Un spectacle unique</h2>
+              <p class="text-lg text-gray-600 mb-4">Titus vous propose un spectacle de scène : « Le grenier magique de Monsieur Ballons »</p>
+              <p class="text-lg text-gray-600 mb-4">Durée : 35 minutes</p>
+              <p class="text-lg text-gray-600">Un spectacle unique alliant humour, poésie et magie des ballons sculptés.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sur_scene1.jpg') }}" alt="Grenier magique" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
           </div>
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/sur_scene2.jpg') }}" 
-              alt="Animation sur scène 2" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+
+          <!-- Découverte de la lampe magique -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/sur_scene2.jpg') }}" alt="Lampe magique" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Un grenier pas comme les autres</h2>
+              <p class="text-lg text-gray-600 mb-4">Plongez dans l’univers fascinant de Titus, un personnage attachant qui se retrouve dans son grenier. Alors qu’il redécouvre ses anciennes affaires, il tombe sur une mystérieuse lampe magique.</p>
+              <p class="text-lg text-gray-600">Un simple frottement et voilà que le grenier se transforme en un véritable portail vers des univers surprenants.</p>
+            </div>
           </div>
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/sur_scene3.jpg') }}" 
-              alt="Animation sur scène 3" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+
+          <!-- Voyage dans le temps -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Voyage à travers les époques</h2>
+              <p class="text-lg text-gray-600 mb-4">Au rythme de la musique, Titus est transporté à travers différentes époques, rencontrant des personnages gigantesques et fantastiques, issus de l’histoire et de l’imaginaire.</p>
+              <p class="text-lg text-gray-600">Ballons, magie et rires sont au rendez-vous pour une aventure pleine de surprises et de rebondissements !</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sur_scene3.jpg') }}" alt="Voyage temporel" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
           </div>
-          <!-- Ajoutez autant de vignettes que nécessaire -->
+
+          <!-- Interaction avec le public -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/sur_scene4.jpg') }}" alt="Spectacle interactif" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Un spectacle interactif</h2>
+              <p class="text-lg text-gray-600 mb-4">Un spectacle interactif, où le public devient complice des aventures de Monsieur Ballons, et où chaque sculpture de ballon prend vie sous les yeux émerveillés des petits et des grands.</p>
+            </div>
+          </div>
+
+          <!-- Conclusion fantaisie -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">De l’ordinaire à l’extraordinaire</h2>
+              <p class="text-lg text-gray-600">Venez découvrir ce spectacle dynamique, moderne, et plein de fantaisie, où l’humour et les ballons sculptés transforment l’ordinaire en extraordinaire.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sur_scene5.jpg') }}" alt="Fantaisie et humour" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
+
+    <!-- Conclusion et CTA -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Un spectacle mémorable</h2>
+        <p class="text-xl text-gray-600 mb-8">« Le grenier magique de Monsieur Ballons » est une expérience scénique alliant poésie, humour et magie, où chaque ballon raconte une histoire.</p>
+        <a href="{{ path('devis', { type: 'sur_scene' }) }}" class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Réservez votre spectacle</a>
       </div>
     </section>
   </div>

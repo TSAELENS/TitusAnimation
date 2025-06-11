@@ -3,50 +3,66 @@
 {% block title %}Prestations – Conte (médiéval){% endblock %}
 
 {% block body %}
-  <div class="flex flex-col flex-grow">
-    <section class="flex-grow pt-28 pb-12">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center mb-12">
-          <div class="md:w-2/3">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Prestations : Conte (médiéval)</h1>
-            <p class="text-gray-700 mb-6">
-              Voyagez dans l’univers médiéval avec nos contes interactifs. Animation de style troubadour, récits légendaires et mise en scène médiévale pour vos fêtes à thème.
-            </p>
-          </div>
-          <div class="md:w-1/3 text-center md:text-right">
-            <a 
-              href="{{ path('devis', { type: 'conte' }) }}" 
-              class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
-            >
-              Demander un devis
-            </a>
-          </div>
+  <div class="flex flex-col min-h-screen bg-gray-50">
+    <section class="pt-20 pb-16 bg-gradient-to-b from-white to-gray-100">
+      <div class="container mx-auto px-6 lg:px-8">
+        <!-- En-tête -->
+        <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
+          <h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">Conte Médiéval<br><span class="text-indigo-600">« Le Secret de la Vallée Gardée »</span></h1>
+          <a href="{{ path('devis', { type: 'conte' }) }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Demander un devis</a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/comte1.jpg') }}" 
-              alt="Conte médiéval 1" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+        <!-- Sections modernes intégrant le texte original -->
+        <div class="space-y-16">
+
+          <!-- Aventure immersive -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Une aventure immersive</h2>
+              <p class="text-lg text-gray-600 mb-4">Titus vous propose un conte légendaire médiéval : « Le secret de la vallée gardée »</p>
+              <p class="text-lg text-gray-600 mb-4">D’une durée de 25 minutes, il vous plonge dans un univers médiéval fascinant où mystère et aventure se croisent.</p>
+              <p class="text-lg text-gray-600">C’est un conte unique, sonorisé où Titus l’enchanteur vous invite à une exploration épique où le fantastique se mêle à la magie de l’instant.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/conte1.jpg') }}" alt="Aventure immersive" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
           </div>
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/comte2.jpg') }}" 
-              alt="Conte médiéval 2" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+
+          <!-- Décor & ambiance -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/conte2.jpg') }}" alt="Décor & ambiance" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Décor & ambiance grandioses</h2>
+              <p class="text-lg text-gray-600 mb-4">Dans un décor où de grandes sculptures de dragon et de dinosaures prennent vie sous vos yeux, ce récit vous transporte dans une vallée oubliée, où un secret millénaire est gardé.</p>
+              <p class="text-lg text-gray-600">L’atmosphère est amplifiée par une musique immersive qui ajoute de la profondeur à chaque rebondissement de l’histoire.</p>
+            </div>
           </div>
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/comte3.jpg') }}" 
-              alt="Conte médiéval 3" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+
+          <!-- Interaction & modernité -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Interaction & modernité</h2>
+              <p class="text-lg text-gray-600 mb-4">À travers un jeu dynamique et innovant, le personnage mène le public dans un voyage de rencontres étonnantes qui donnent vie à un monde ancien.</p>
+              <p class="text-lg text-gray-600">Les sculptures et le décor contribuent à une expérience visuelle, où le passé et le présent se rencontrent pour offrir un spectacle moderne.</p>
+              <p class="text-lg text-gray-600 mt-4">« Le Secret de la Vallée Gardée » est bien plus qu’un simple conte, c’est un voyage, une aventure où la magie de la légende rencontre l’innovation du spectacle. Un moment inoubliable où chaque minute est une nouvelle découverte, pour petits et grands.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/conte3.jpg') }}" alt="Interaction moderne" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
           </div>
-          <!-- … -->
+
         </div>
+      </div>
+    </section>
+
+    <!-- Conclusion et CTA -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Un moment inoubliable</h2>
+        <p class="text-xl text-gray-600 mb-8">« Le Secret de la Vallée Gardée » est plus qu’un simple conte, c’est un voyage légendaire où la technologie du spectacle se met au service de la magie médiévale.</p>
+        <a href="{{ path('devis', { type: 'conte' }) }}" class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Réservez votre représentation</a>
       </div>
     </section>
   </div>
