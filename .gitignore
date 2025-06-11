@@ -10,4 +10,3 @@ public/build/
 .vscode/
 .DS_Store
 /migrations
-.env

@@ -1,55 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Agenda – Affiches{% endblock %}
+{% block title %}Agenda - Affiches{% endblock %}
 
 {% block body %}
-<section class="pt-28 pb-12 flex-grow">
-  <div class="container mx-auto px-4 space-y-12">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold mb-2">Agenda – Affiches</h1>
-      <p class="text-gray-600">Découvrez nos affiches et événements à venir.</p>
+<section class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-6 text-center">Agenda - Affiches</h1>
+  <p class="text-center text-gray-600 mb-8">Découvrez nos affiches et événements à venir.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ asset('build/images/agenda/affiche1.jpg') }}" alt="Affiche 1" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
     </div>
-
-    {% for affiche in [
-      {
-        image: 'affiche1.jpg',
-        titre: 'Spectacle de Clown',
-        description: 'Rejoignez Titus pour un spectacle de clown interactif : rires et étonnements garantis pour petits et grands.',
-        date: '15 juillet 2025',
-        heure: '20h30',
-        lieu: 'Théâtre de la Ville, Lille'
-      },
-      {
-        image: 'affiche2.jpg',
-        titre: 'Conte Médiéval',
-        description: 'Plongez dans l’époque médiévale avec un conte interactif : musique, légendes et animations en costume.',
-        date: '22 août 2025',
-        heure: '18h00',
-        lieu: 'Château de Dunkerque'
-      },
-      {
-        image: 'affiche3.jpg',
-        titre: 'Atelier Sculpture',
-        description: 'Initiez-vous à la sculpture sur ballon lors d’un atelier ludique et créatif adapté à tous.',
-        date: '5 septembre 2025',
-        heure: '14h00 – 16h00',
-        lieu: 'Maison des Associations, Roubaix'
-      }
-    ] %}
-<article class="max-w-5xl mx-auto flex flex-col md:flex-row bg-white rounded shadow overflow-hidden">
-  <div class="md:w-1/2">
-    <img src="{{ asset('build/images/agenda/' ~ affiche.image) }}" alt="{{ affiche.titre }}" class="w-full h-full object-cover">
-  </div>
-  <div class="md:w-1/2 p-6">
-    <h2 class="text-2xl font-semibold mb-2">{{ affiche.titre }}</h2>
-    <p class="text-gray-700 mb-2">{{ affiche.description }}</p>
-    <p class="text-gray-600"><strong>Date :</strong> {{ affiche.date }}</p>
-    <p class="text-gray-600"><strong>Heure :</strong> {{ affiche.heure }}</p>
-    <p class="text-gray-600"><strong>Lieu :</strong> {{ affiche.lieu }}</p>
-  </div>
-</article>
-
-    {% endfor %}
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ asset('build/images/agenda/affiche2.jpg') }}" alt="Affiche 2" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ asset('build/images/agenda/affiche3.jpg') }}" alt="Affiche 3" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
+    </div>
+    {# Ajoutez d'autres affiches si nécessaire #}
   </div>
 </section>
 {% endblock %}
