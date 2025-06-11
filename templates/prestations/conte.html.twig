@@ -9,7 +9,7 @@
         <!-- En-tête -->
         <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
           <h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">Conte Médiéval<br><span class="text-indigo-600">« Le Secret de la Vallée Gardée »</span></h1>
-          <a href="{{ path('devis', { type: 'conte' }) }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Demander un devis</a>
+          <a href="{{ path('devis') ~ '?type_devis=conte_medieval' }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Demander un devis</a>
         </div>
 
         <!-- Sections modernes intégrant le texte original -->
@@ -62,7 +62,7 @@
       <div class="container mx-auto px-6 lg:px-8 text-center">
         <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Un moment inoubliable</h2>
         <p class="text-xl text-gray-600 mb-8">« Le Secret de la Vallée Gardée » est plus qu’un simple conte, c’est un voyage légendaire où la technologie du spectacle se met au service de la magie médiévale.</p>
-        <a href="{{ path('devis', { type: 'conte' }) }}" class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Réservez votre représentation</a>
+        <a href="{{ path('devis') ~ '?type_devis=conte_medieval' }}"  class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Réservez votre représentation</a>
       </div>
     </section>
   </div>

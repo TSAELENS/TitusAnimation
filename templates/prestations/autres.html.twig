@@ -3,51 +3,89 @@
 {% block title %}Prestations – Autres{% endblock %}
 
 {% block body %}
-  <div class="flex flex-col flex-grow">
-    <section class="flex-grow pt-28 pb-12">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center mb-12">
-          <div class="md:w-2/3">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Prestations : Décoration</h1>
-            <p class="text-gray-700 mb-6">
-              Apportez une touche festive et originale à vos événements grâce à nos décorations en ballon. 
-              Centres de table, arches, guirlandes et compositions colorées créées selon vos envies.
-            </p>
-          </div>
-          <div class="md:w-1/3 text-center md:text-right">
-            <a 
-              href="{{ path('devis', { type: 'autres' }) }}" 
-              class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
-            >
-              Demander un devis
-            </a>
-          </div>
+  <div class="flex flex-col min-h-screen bg-gray-50">
+    <section class="pt-20 pb-16 bg-gradient-to-b from-white to-gray-100">
+      <div class="container mx-auto px-6 lg:px-8">
+
+        <!-- En-tête -->
+        <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
+          <h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Autres prestations<br>
+            <span class="text-indigo-600">Anniversaire, mariage…</span>
+          </h1>
+          <a href="{{ path('devis') ~ '?type_devis=autres' }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
+            Demander un devis
+          </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/decoration1.jpg') }}" 
-              alt="Décoration 1" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+        <!-- Sections intégrant le texte original -->
+        <div class="space-y-16">
+
+          <!-- Présentation générale -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Autres prestations</h2>
+              <p class="text-lg text-gray-600">Titus vous propose aussi d’intervenir lors de vos évènements personnels, familiaux …</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/autres1.jpg') }}" alt="Autres prestations" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
           </div>
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/decoration2.jpg') }}" 
-              alt="Décoration 2" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+
+          <!-- Anniversaire enfants -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/autres2.jpg') }}" alt="Anniversaire enfants" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Anniversaire enfants (1h30)</h2>
+              <p class="text-lg text-gray-600">Titus, le clown peut animer l’anniversaire de vos enfants avec une prestation en musique de 1h30 environ : sculptures de ballons, une animation autour du clown tout en humour, avec des surprises, des rires, et des clowneries. Au cœur de la fête, les enfants participeront à l’animation et en garderont un très bon souvenir. Les sculptures sont distribuées aux enfants présents et une autre sculpture spéciale en cadeau pour l’enfant qui fête son anniversaire.</p>
+            </div>
           </div>
-          <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src="{{ asset('build/images/prestations/decoration3.jpg') }}" 
-              alt="Décoration 3" 
-              class="w-full h-64 object-cover hover:scale-105 transition duration-300"
-            >
+
+          <!-- Mariage -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Mariage</h2>
+              <p class="text-lg text-gray-600">Titus peut également intervenir lors de votre mariage, au vin d’honneur ou en soirée pour amuser les enfants présents avec de la sculpture de ballons. Une surprise est prévue en plus pour les mariés !</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/autres3.jpg') }}" alt="Mariage" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
           </div>
-          <!-- … -->
+
+          <!-- Autres fêtes -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/autres4.jpg') }}" alt="Autres fêtes" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Autres fêtes</h2>
+              <p class="text-lg text-gray-600">Il peut s’adapter à toutes autres fêtes vous concernant (retraite, communion, baptême, anniversaire de mariage, soirée…)</p>
+            </div>
+          </div>
+
+          <!-- Cadeau & Décoration -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Cadeau personnalisé & Décoration d’espace</h2>
+              <p class="text-lg text-gray-600">Envie de faire un cadeau à une personne ou un enfant : il peut aussi vous sculpter à votre demande un personnage, un animal. Besoin d'une décoration pour un lieu (salle, vitrine...) Titus proposera des sculptures selon votre thème.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/autres5.jpg') }}" alt="Cadeau personnalisé" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
+
+    <!-- Conclusion et CTA -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Vos événements, notre magie</h2>
+        <p class="text-xl text-gray-600 mb-8">N’hésitez pas à contacter Titus, qui trouvera une solution pour apporter une touche féerique à vos fêtes.</p>
+        <a href="{{ path('devis') ~ '?type_devis=autres' }}" class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Demander un devis</a>
       </div>
     </section>
   </div>
