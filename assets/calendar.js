@@ -44,6 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.jsCalendar td.selected').forEach(el => el.classList.remove('selected'));
     // Marquer la nouvelle
     event.target.classList.add('selected');
+
+    const details = document.getElementById("event-details");
+    const formattedDate = date.toLocaleDateString("fr-FR", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+        details.innerHTML = `
+      <h2 class="text-xl font-bold mb-2">Détails</h2>
+      <p class="text-gray-700">Date sélectionnée :</p>
+      <p class="text-gray-900 font-semibold">${formattedDate}</p>
+    `;
+
   });
 
   // Forcer le rendu initial
