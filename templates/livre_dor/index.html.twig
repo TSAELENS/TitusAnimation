@@ -14,36 +14,32 @@
     <section>
       <h2 class="text-2xl font-semibold text-gray-700 mb-4">Avis récents</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Exemple d'avis -->
-        <div class="bg-white border border-gray-200 rounded-lg shadow p-4">
-          <p class="text-gray-800 italic">"Super prestation, très professionnel !"</p>
-          <p class="text-sm text-gray-600 mt-2">- Jean Dupont</p>
-        </div>
-        <div class="bg-white border border-gray-200 rounded-lg shadow p-4">
-          <p class="text-gray-800 italic">"Une expérience inoubliable pour tous les invités."</p>
-          <p class="text-sm text-gray-600 mt-2">- Marie Curie</p>
-        </div>
-        <div class="bg-white border border-gray-200 rounded-lg shadow p-4">
-          <p class="text-gray-800 italic">"Je recommande vivement, un vrai régal !"</p>
-          <p class="text-sm text-gray-600 mt-2">- Paul Martin</p>
-        </div>
+        {% for commentaire in commentaires %}
+          <div class="bg-white border border-gray-200 rounded-lg shadow p-4">
+            <p class="text-gray-800 italic">"{{ commentaire.contenu|e }}"</p>
+            <p class="text-sm text-gray-600 mt-2">- {{ commentaire.auteur|e }}</p>
+          </div>
+        {% else %}
+          <p>Aucun avis pour l’instant, soyez le premier !</p>
+        {% endfor %}
       </div>
     </section>
   </div>
 
   <!-- Modal pour ajouter un avis -->
-  <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30 hidden">
+  <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-white/10 backdrop-blur-sm hidden">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg relative">
       <button id="close-modal" type="button" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-2xl">&times;</button>
       <h2 class="text-2xl font-bold mb-4">Ajouter un avis</h2>
-      <form action="#" method="post" class="space-y-6">
+      <form action="{{ path('livre_dor') }}" method="post" class="space-y-6">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('ajouter_avis') }}">
         <div>
           <label for="auteur" class="block text-gray-800 font-medium">Votre nom</label>
-          <input type="text" name="auteur" id="auteur" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" name="auteur" id="auteur" required class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div>
           <label for="contenu" class="block text-gray-800 font-medium">Votre avis</label>
-          <textarea name="contenu" id="contenu" rows="4" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          <textarea name="contenu" id="contenu" rows="4" required class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
         </div>
         <p class="text-sm text-gray-600 italic">Votre avis sera soumis pour validation avant publication.</p>
         <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition">

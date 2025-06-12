@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestations – Sculpture mobile{% endblock %}
+
+{% block body %}
+  <div class="flex flex-col min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-b from-white to-gray-100">
+      <div class="container mx-auto px-6 lg:px-8">
+        <!-- Header -->
+        <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
+          <h1 class="text-5xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Titus le sculpteur de ballons c’est aussi :<br>
+            <span class="text-indigo-600">Titus l’Enchanteur – Un voyage médiéval inoubliable</span>
+          </h1>
+          <a href="{{ path('devis') ~ '?type_devis=sculpture_enchanteur' }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
+            Demander un devis
+          </a>
+        </div>
+        <!-- Sections -->
+        <div class="space-y-16">
+          <!-- Durée & options -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Durée et formats</h2>
+              <p class="text-lg text-gray-600">Durée : à déterminer par l’organisateur<br>Au choix : en place fixe ou en déambulation à vélo</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sculpture_conte1.jpg') }}" alt="Durée et formats" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+          <!-- Univers médiéval -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/sculpture_conte2.jpg') }}" alt="Univers médiéval" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Voyage au cœur du Moyen Âge</h2>
+              <p class="text-lg text-gray-600">Laissez-vous transporter au cœur du Moyen Âge avec Titus l’Enchanteur, un personnage atypique et fascinant, vêtu de ses habits médiévaux.</p>
+            </div>
+          </div>
+          <!-- Animation fixe & déambulation -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Animation & charrette mobile</h2>
+              <p class="text-lg text-gray-600">En animation fixe ou en déambulation, Titus et sa charrette en bois créent une ambiance envoûtante au son des musiques médiévales.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sculpture_conte3.jpg') }}" alt="Animation médiévale" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+          <!-- Humour et distribution -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/sculpture_conte4.jpg') }}" alt="Humour et distribution" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Humour et gourmandise</h2>
+              <p class="text-lg text-gray-600">Accompagné de son humour décalé, Titus distribue des ballons sculptés tout au long de son parcours, apportant une touche ludique et originale aux fêtes.</p>
+            </div>
+          </div>
+          <!-- Thèmes & final -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Thèmes et magie</h2>
+              <p class="text-lg text-gray-600">Prestation idéale pour fêtes à thème (sorcières, médiévales, féériques, etc.). Laissez-vous emporter dans un univers où l’humour de Titus charmera petits et grands.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sculpture_conte5.jpg') }}" alt="Thèmes et magie" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Conclusion & CTA -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Un passage inoubliable</h2>
+        <p class="text-xl text-gray-600 mb-8">Un passage qui ne passera pas inaperçu, où passion et savoir-faire subliment votre événement.</p>
+        <a href="{{ path('devis') ~ '?type_devis=sculpture_enchanteur' }}" class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Réservez votre animation</a>
+      </div>
+    </section>
+  </div>
+{% endblock %}

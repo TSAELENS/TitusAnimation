@@ -4,21 +4,6 @@
 
 {% block body %}
 
-  {# --- Hero Section --- #}
-  {# <header class="relative bg-gradient-to-r from-sky-800 to-sky-500 h-screen flex items-center justify-center">
-    <div class="absolute inset-0"> #}
-      {# <img src="/build/images/hero-bg.png" alt="Hero background" class="w-80% h-80% object-cover opacity-30"> #}
-    {# </div>
-    <div class="relative text-center px-4">
-      <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-lg">L'Art du Ballon</h1>
-      <p class="text-xl md:text-2xl text-white mb-8 drop-shadow-md">
-        Des sculptures éphémères et modernes qui transforment l'ordinaire en extraordinaire
-      </p>
-      <a href="#about" class="bg-white text-blue-600 font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 transition">
-        En savoir plus
-      </a>
-    </div>
-  </header> #}
 
 
 <section class="bg-gray-900 pt-22 pb-8 flex items-center justify-center">
@@ -63,9 +48,41 @@
   </div>
 </section>
 
+  <section class="py-20 bg-gray-100">
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="{{ path('prestations_sur_scene') }}" class="bg-yellow-300 text-gray-900 font-semibold py-2 px-4 rounded-full hover:bg-yellow-400 transition">🎈 Spectacle sur scène</a>
+        <a href="{{ path('prestations_conte') }}" class="bg-green-300 text-gray-900 font-semibold py-2 px-4 rounded-full hover:bg-green-400 transition">📜 Conte médiéval</a>
+        <a href="{{ path('prestations_sculpture_clown') }}" class="bg-pink-300 text-gray-900 font-semibold py-2 px-4 rounded-full hover:bg-pink-400 transition">🎨 Sculpture clown</a>
+        <a href="{{ path('prestations_sculpture_conte') }}" class="bg-purple-300 text-gray-900 font-semibold py-2 px-4 rounded-full hover:bg-purple-400 transition">✨ Sculpture enchanteur</a>
+        <a href="{{ path('prestations_autres') }}" class="bg-indigo-300 text-gray-900 font-semibold py-2 px-4 rounded-full hover:bg-indigo-400 transition">🎉 Autres prestations</a>
+      </div>
+
+  <div class="container mx-auto px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-gray-800 text-center mt-24 mb-12">Les animations</h2>
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-2xl font-semibold mb-3">Spectacle sur scène</h3>
+        <p>Spectacle mêlant humour, poésie et magie de la sculpture de ballons, dans un décor enchanteur pour petits et grands.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-2xl font-semibold mb-3">Sculpture de ballons</h3>
+        <p>Animation clown sculptant des ballons en fixe ou en déambulation à vélo, humour et poésie.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-2xl font-semibold mb-3">Conte</h3>
+        <p>Conte médiéval, musique immersive et mises en scène captivantes pour tous les âges.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-2xl font-semibold mb-3">Autres prestations</h3>
+        <p>Anniversaires, mariages, fêtes à thème : sculptures, décorations et animations personnalisées.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   {# --- Section Galerie / Photos --- #}
-  <section id="portfolio" class="py-20 bg-gray-100">
+  <section id="portfolio" class="pt-10 pb-20 bg-gray-100">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
         <h2 class="text-4xl font-bold text-gray-800">Galerie</h2>
@@ -86,6 +103,36 @@
   </section>
 
 
+  <section class="pt-10 pb-20 bg-gray-100">
+    <div class="container mx-auto px-6 lg:px-8 ">
+      <h2 class="text-4xl font-bold text-gray-800 text-center mb-12">Ils témoignent</h2>
+
+      <div class="relative">
+        <!-- Carrousel -->
+        <div class="flex x-auto space-x-6 px-4"        >
+          <div class="snap-center flex-none w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
+            <p class="italic text-gray-700">Titus a transformé notre mariage en conte de fées !</p>
+            <p class="mt-4 font-semibold text-indigo-600">– Marie & Paul</p>
+          </div>
+          <div class="snap-center flex-none w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
+            <p class="italic text-gray-700">Les anniversaires de mes enfants sont magiques grâce à lui.</p>
+            <p class="mt-4 font-semibold text-indigo-600">– Sophie</p>
+          </div>
+          <div class="snap-center flex-none w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
+            <p class="italic text-gray-700">Un artiste passionné, hautement recommandé !</p>
+            <p class="mt-4 font-semibold text-indigo-600">– Julien</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- Footer CTA -->
+<section class="bg-white pt-16 text-center">
+  <h2 class="text-3xl font-bold mb-4">Prêt à enchanter votre événement ?</h2>
+  <a href="{{ path('devis') ~ '?type_devis=sur_scene' }}" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition">Demander un devis</a>
+</section>
 
   {# --- Script pour le menu mobile --- #}
   <script>

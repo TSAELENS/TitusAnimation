@@ -1,7 +1,27 @@
 @import "tailwindcss";
-
+@import './jsCalendar.css';
 
 body {
     background-color: lightgray;
 }
 
+.etat-disponible {
+  background-color: #3DAE2B !important;
+  color: white;
+}
+.etat-reserve {
+  background-color: #EAC36C !important;
+}
+.etat-ferme {
+  background-color: #ccc !important;
+  color: #666;
+}
+.jsCalendar-current {
+    background: transparent !important;
+    color: inherit !important;
+  }
+  
+.selected {
+  outline: 2px solid #f59e0b;
+  border-radius: 50%;
+}

@@ -7,16 +7,44 @@
   <h1 class="text-4xl font-bold mb-6 text-center">Galerie - Vidéos</h1>
   <p class="text-center text-gray-600 mb-8">Découvrez nos animations en vidéo.</p>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {% for video in videos %}
     <div class="overflow-hidden rounded-lg shadow-lg">
-      <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_1" title="Vidéo 1" frameborder="0" allowfullscreen></iframe>
+      {% set url = video.videoUrl %}
+      {% if 'youtube.com/watch?v=' in url %}
+          {% set videoId = url|split('v=')[1]|split('&')[0] %}
+          <iframe class="w-full h-64"
+                  src="https://www.youtube.com/embed/{{ videoId }}"
+                  title="{{ video.titre }}" frameborder="0" allowfullscreen></iframe>
+      {% elseif 'youtu.be/' in url %}
+          {% set videoId = url|split('youtu.be/')[1]|split('?')[0] %}
+          <iframe class="w-full h-64"
+                  src="https://www.youtube.com/embed/{{ videoId }}"
+                  title="{{ video.titre }}" frameborder="0" allowfullscreen></iframe>
+      {% elseif 'youtube.com/shorts/' in url %}
+          {% set videoId = url|split('shorts/')[1]|split('?')[0] %}
+          <iframe class="w-full h-64"
+                  src="https://www.youtube.com/embed/{{ videoId }}"
+                  title="{{ video.titre }}" frameborder="0" allowfullscreen></iframe>
+      {% elseif 'instagram.com' in url %}
+          <iframe class="w-full h-64"
+                  src="{{ url }}embed"
+                  title="{{ video.titre }}" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      {% elseif 'tiktok.com' in url %}
+          <blockquote class="w-full h-64 tiktok-embed" cite="{{ url }}"
+                      data-video-id="{{ url|split('/video/')[1]|split('?')[0] }}">
+              <a href="{{ url }}">Voir sur TikTok</a>
+          </blockquote>
+          <script async src="https://www.tiktok.com/embed.js"></script>
+      {% elseif 'facebook.com' in url %}
+          <iframe class="w-full h-64"
+                  src="https://www.facebook.com/plugins/video.php?href={{ url | url_encode }}&show_text=0"
+                  style="border:none;overflow:hidden" scrolling="no"
+                  frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      {% else %}
+          <p style="color: red;">Lien YouTube non reconnu : {{ url }}</p>
+      {% endif %}
     </div>
-    <div class="overflow-hidden rounded-lg shadow-lg">
-      <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_2" title="Vidéo 2" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="overflow-hidden rounded-lg shadow-lg">
-      <iframe class="w-full h-64" src="https://www.youtube.com/embed/VIDEO_ID_3" title="Vidéo 3" frameborder="0" allowfullscreen></iframe>
-    </div>
-    {# Ajoutez d'autres blocs vidéo si nécessaire #}
+    {% endfor %}
   </div>
 </section>
 {% endblock %}

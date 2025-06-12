@@ -9,7 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "encore dev",
     "dev-server": "encore dev-server",
-    "build": "encore production"
+    "build": "encore production",
+    "watch": "encore dev --watch",
+    "hot": "encore dev-server"
   },
   "keywords": [],
   "author": "",
@@ -25,14 +27,10 @@
     "file-loader": "^6.0.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.0.7",
+    "webpack-dev-server": "^5.2.2",
     "webpack-notifier": "^1.15.0"
   },
   "dependencies": {
-    "@fullcalendar/core": "^6.1.15",
-    "@fullcalendar/daygrid": "^6.1.15",
-    "@fullcalendar/interaction": "^6.1.15",
-    "@fullcalendar/list": "^6.1.15",
-    "@fullcalendar/timegrid": "^6.1.15",
     "@tailwindcss/postcss": "^4.0.7",
     "core-js": "^3.40.0",
     "postcss-loader": "^8.1.1"

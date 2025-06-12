@@ -1,95 +1,202 @@
+{# templates/devis.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block title %}Devis - Titus Animation{% endblock %}
 
 {% block body %}
-<div class="min-h-screen flex items-center justify-center bg-white">
-  <div class="w-full max-w-lg">
-    <h1 class="text-3xl font-bold text-center mb-8">Demande de devis</h1>
-    <form action="#" method="post" class="space-y-6">
-      <!-- Choix du type de devis -->
+  {# On peut retirer le "min-h-screen" ici, l'essentiel est que <main> en base.html.twig ait déjà flex-grow #}
+  <div class="flex flex-col flex-grow bg-white items-center justify-center py-12">
+    <div class="w-full max-w-lg px-4">
+      <h1 class="text-3xl font-bold text-center mb-8">Demande de devis</h1>
+      <form action="#" method="post" class="space-y-6">
+        {# --- Choix du type de devis (préréglé depuis la query string) --- #}
       <div>
         <label for="type_devis" class="block text-gray-800 font-medium">Type de devis</label>
-        <select name="type_devis" id="type_devis" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <option value="sur_scene" selected>Sur scène</option>
-          <option value="sculpture_fixe">Sculpture fixe</option>
-          <option value="sculpture_mobile">Sculpture mobile</option>
-          <option value="decoration">Décoration</option>
-          <option value="comte_medieval">Comte (médiéval)</option>
+        <select 
+          name="type_devis" 
+          id="type_devis" 
+          class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <optgroup label="Titus le clown">
+            <option value="sur_scene"
+              {{ app.request.get('type_devis') == 'sur_scene' ? 'selected' : '' }}>
+              Spectacle sur scène
+            </option>
+            <option value="sculpture_clown"
+              {{ app.request.get('type_devis') == 'sculpture_clown' ? 'selected' : '' }}>
+              Sculpture de ballons
+            </option>
+            <option value="autres"
+              {{ app.request.get('type_devis') == 'autres' ? 'selected' : '' }}>
+              Autres prestations
+            </option>
+          </optgroup>
+          <optgroup label="Titus l’enchanteur">
+            <option value="conte_medieval"
+              {{ app.request.get('type_devis') == 'conte_medieval' ? 'selected' : '' }}>
+              Le conte
+            </option>
+            <option value="sculpture_enchanteur"
+              {{ app.request.get('type_devis') == 'sculpture_enchanteur' ? 'selected' : '' }}>
+              Sculpture de ballons
+            </option>
+          </optgroup>
         </select>
       </div>
 
-      <!-- Champs communs -->
-      <div>
-        <label for="prenom" class="block text-gray-800 font-medium">Prénom</label>
-        <input type="text" name="prenom" id="prenom" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div>
-        <label for="nom" class="block text-gray-800 font-medium">Nom</label>
-        <input type="text" name="nom" id="nom" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div>
-        <label for="adresse" class="block text-gray-800 font-medium">Adresse</label>
-        <input type="text" name="adresse" id="adresse" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div>
-        <label for="coordonnees" class="block text-gray-800 font-medium">Coordonnées (Téléphone, Mail)</label>
-        <input type="text" name="coordonnees" id="coordonnees" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div>
-        <label for="lieu_animation" class="block text-gray-800 font-medium">Lieu de l’animation</label>
-        <input type="text" name="lieu_animation" id="lieu_animation" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div>
-        <label for="date" class="block text-gray-800 font-medium">Date</label>
-        <input type="date" name="date" id="date" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div>
-        <label for="heure" class="block text-gray-800 font-medium">Heure</label>
-        <input type="time" name="heure" id="heure" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div>
-        <label for="contact_jour_j" class="block text-gray-800 font-medium">Contact pour le jour j</label>
-        <input type="text" name="contact_jour_j" id="contact_jour_j" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
 
-      <!-- Champs conditionnels -->
-      <div id="champs_espace_scene" class="hidden">
-        <label for="espace_scene" class="block text-gray-800 font-medium">Espace scénique</label>
-        <input type="text" name="espace_scene" id="espace_scene" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div id="champs_duree" class="hidden">
-        <label for="duree" class="block text-gray-800 font-medium">Durée</label>
-        <input type="text" name="duree" id="duree" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-
-      <div>
-        <label for="infos_complementaires" class="block text-gray-800 font-medium">Informations complémentaires</label>
-        <textarea name="infos_complementaires" id="infos_complementaires" class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-      </div>
+        {# --- Champs communs --- #}
+        <div>
+          <label for="prenom" class="block text-gray-800 font-medium">Prénom</label>
+          <input 
+            type="text" 
+            name="prenom" 
+            id="prenom" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div>
+          <label for="nom" class="block text-gray-800 font-medium">Nom</label>
+          <input 
+            type="text" 
+            name="nom" 
+            id="nom" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div>
+          <label for="adresse" class="block text-gray-800 font-medium">Adresse</label>
+          <input 
+            type="text" 
+            name="adresse" 
+            id="adresse" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div>
+          <label for="coordonnees" class="block text-gray-800 font-medium">Coordonnées (Téléphone, Mail)</label>
+          <input 
+            type="text" 
+            name="coordonnees" 
+            id="coordonnees" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
 
 
+        <div>
+          <label for="lieu_animation" class="block text-gray-800 font-medium">Lieu de l’animation</label>
+          <input 
+            type="text" 
+            name="lieu_animation" 
+            id="lieu_animation" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        
+        <div>
+          <label for="heure" class="block text-gray-800 font-medium">Type d'évènement</label>
+          <input 
+            type="text" 
+            name="lieu_animation" 
+            id="lieu_animation" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
 
-      <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition">Envoyer</button>
-    </form>
+        <div>
+          <label for="date" class="block text-gray-800 font-medium">Date</label>
+          <input 
+            type="date" 
+            name="date" 
+            id="date" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <div>
+          <label for="heure" class="block text-gray-800 font-medium">Heure</label>
+          <input 
+            type="time" 
+            name="heure" 
+            id="heure" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+
+        {# --- Champs conditionnels : Durée (Sculpture) --- #}
+        <div id="champs_duree" class="hidden">
+          <label for="duree" class="block text-gray-800 font-medium">Durée</label>
+          <input 
+            type="time" 
+            name="heure" 
+            id="heure" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+
+        {# --- Champs conditionnels : Espace scénique (Sur scène + Conte) --- #}
+        <div id="champs_espace_scene" class="hidden">
+          <label for="espace_scene" class="block text-gray-800 font-medium">Espace scénique (intérieur, extérieur, scène...)</label>
+          <input 
+            type="text" 
+            name="espace_scene" 
+            id="espace_scene" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+
+
+
+        <div>
+          <label for="contact_jour_j" class="block text-gray-800 font-medium">Contact pour le jour J</label>
+          <input 
+            type="text" 
+            name="contact_jour_j" 
+            id="contact_jour_j" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+
+        <div>
+          <label for="infos_complementaires" class="block text-gray-800 font-medium">Informations complémentaires</label>
+          <textarea 
+            name="infos_complementaires" 
+            id="infos_complementaires" 
+            class="mt-2 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition"
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
   </div>
-</div>
 
-<script>
-  function updateConditionalFields() {
-    var type = document.getElementById('type_devis').value;
-    document.getElementById('champs_espace_scene').classList.add('hidden');
-    document.getElementById('champs_duree').classList.add('hidden');
+  <script>
+    function updateConditionalFields() {
+      var type = document.getElementById('type_devis').value;
+      // Masquer les deux blocs d’abord
+      document.getElementById('champs_espace_scene').classList.add('hidden');
+      document.getElementById('champs_duree').classList.add('hidden');
 
-    if (type === 'sur_scene' || type === 'comte_medieval') {
-      document.getElementById('champs_espace_scene').classList.remove('hidden');
-    } else if (type === 'sculpture_fixe' || type === 'sculpture_mobile') {
-      document.getElementById('champs_duree').classList.remove('hidden');
+      // Afficher le bloc “Espace scénique” si Sur scène ou Conte (médiéval)
+      if (type === 'sur_scene' || type === 'conte_medieval') {
+        document.getElementById('champs_espace_scene').classList.remove('hidden');
+      }
+      // Afficher le bloc “Durée” si Sculpture fixe ou Sculpture mobile
+      else if (type === 'sculpture_clown' || type === 'sculpture_enchanteur') {
+        document.getElementById('champs_duree').classList.remove('hidden');
+      }
+      // Pour “décoration”, ni espace_scene ni durée n’apparaissent
     }
-  }
 
-  document.getElementById('type_devis').addEventListener('change', updateConditionalFields);
-  // Appel initial pour afficher le champ correspondant à la valeur sélectionnée par défaut
-  updateConditionalFields();
-</script>
+    // Met à jour à chaque changement de sélection
+    document.getElementById('type_devis').addEventListener('change', updateConditionalFields);
+    // Au chargement de la page, on appelle l’update pour afficher dès le départ le bon bloc
+    updateConditionalFields();
+  </script>
 {% endblock %}

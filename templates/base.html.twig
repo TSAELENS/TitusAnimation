@@ -8,197 +8,300 @@
       {{ encore_entry_link_tags('app') }}
     {% endblock %}
     
-  <script data-turbo-permanent>
-  document.addEventListener('turbo:load', () => {
-    (function(){
-      if (!window.menuButtonInitialized) {
-        const menuButton = document.getElementById('mobile-menu-button');
-        if (menuButton) {
-          menuButton.addEventListener('click', () => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-          });
-        }
-        window.menuButtonInitialized = true;
-      }
-    })();
-  });
-  </script>
-
+    <script data-turbo-permanent>
+      document.addEventListener('turbo:load', () => {
+        (function(){
+          if (!window.menuButtonInitialized) {
+            const menuButton = document.getElementById('mobile-menu-button');
+            if (menuButton) {
+              menuButton.addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+              });
+            }
+            window.menuButtonInitialized = true;
+          }
+        })();
+      });
+    </script>
   </head>
+
   <body class="min-h-screen flex flex-col">
     {# --- Barre de navigation --- #}
-    <nav class="bg-white shadow sticky top-0 z-50">
-      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="{{ path('homepage') }}" class="text-2xl font-bold text-gray-800">Titus Animation</a>
-        <!-- Menu Desktop -->
-        <ul class="hidden md:flex space-x-8">
-          <li>
-            <a href="{{ path('homepage') }}" class="text-gray-600 hover:text-gray-900 transition">Accueil</a>
-          </li>
-          <li class="relative group">
-            <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
-              Prestations
-              <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-                <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
-              </svg>
-            </span>
-            <ul class="absolute left-0 top-full w-48 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
-              <li><a href="{{ path('prestations_sur_scene') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sur scène</a></li>
-              <li><a href="{{ path('prestations_sculpture_fixe') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sculpture fixe</a></li>
-              <li><a href="{{ path('prestations_sculpture_mobile') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sculpture mobile</a></li>
-              <li><a href="{{ path('prestations_decoration') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Décoration</a></li>
-              <li><a href="{{ path('prestations_comte') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Comte (médiéval)</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="{{ path('livre_dor') }}" class="text-gray-600 hover:text-gray-900 transition">Livre d’or</a>
-          </li>
-          <li class="relative group">
-            <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
-              Galerie
-              <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-                <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
-              </svg>
-            </span>
-            <ul class="absolute left-0 top-full w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
-              <li><a href="{{ path('galerie_photos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Photos</a></li>
-              <li><a href="{{ path('galerie_videos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Vidéos</a></li>
-            </ul>
-          </li>
-          <li class="relative group">
-            <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
-              Agenda
-              <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-                <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
-              </svg>
-            </span>
-            <ul class="absolute left-0 top-full w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
-              <li><a href="{{ path('agenda_affiches') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Affiches</a></li>
-              <li><a href="{{ path('agenda_calendrier') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Calendrier</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="{{ path('devis') }}" class="text-gray-600 hover:text-gray-900 transition">Devis</a>
-          </li>
-        </ul>
-        <!-- Menu Mobile Button -->
-        <div class="md:hidden">
-          <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <!-- Menu Mobile -->
-      <div id="mobile-menu" class="hidden md:hidden">
-        <ul class="px-4 pt-2 pb-4 space-y-2">
-          <li>
-            <a href="{{ path('homepage') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Accueil</a>
-          </li>
-          <li>
-            <details class="group">
-              <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Prestations</summary>
-              <ul class="pl-4 mt-1 space-y-1">
-                <li><a href="{{ path('prestations_sur_scene') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Sur scène</a></li>
-                <li><a href="{{ path('prestations_sculpture_fixe') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Sculpture fixe</a></li>
-                <li><a href="{{ path('prestations_sculpture_mobile') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Sculpture mobile</a></li>
-                <li><a href="{{ path('prestations_decoration') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Décoration</a></li>
-                <li><a href="{{ path('prestations_comte') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Comte (médiéval)</a></li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a href="{{ path('livre_dor') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Livre d’or</a>
-          </li>
-          <li>
-            <details class="group">
-              <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Galerie</summary>
-              <ul class="pl-4 mt-1 space-y-1">
-                <li><a href="{{ path('galerie_photos') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Photos</a></li>
-                <li><a href="{{ path('galerie_videos') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Vidéos</a></li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <details class="group">
-              <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Agenda</summary>
-              <ul class="pl-4 mt-1 space-y-1">
-                <li><a href="{{ path('agenda_affiches') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Affiches</a></li>
-                <li><a href="{{ path('agenda_calendrier') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Calendrier</a></li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a href="{{ path('devis') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Devis</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+ <nav class="bg-white shadow sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="{{ path('homepage') }}" class="text-2xl font-bold text-gray-800">Titus Animation</a>
+    <!-- Menu Desktop -->
+    <ul class="hidden md:flex space-x-8">
+      <li>
+        <a href="{{ path('homepage') }}" class="text-gray-600 hover:text-gray-900 transition">Accueil</a>
+      </li>
 
-    {# Contenu de chaque page #}
-    <main class="flex-grow">
+      <!-- Titus le clown -->
+      <li class="relative group">
+        <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
+          Titus le clown
+          <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
+          </svg>
+        </span>
+        <ul class="absolute left-0 top-full w-48 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
+          <li>
+            <a href="{{ path('prestations_sur_scene') }}"
+               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Spectacle sur scène
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('prestations_sculpture_clown') }}"
+               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Sculpture de ballons
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('prestations_autres') }}"
+               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Autres prestations
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Titus l'enchanteur -->
+      <li class="relative group">
+        <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
+          Titus l’enchanteur
+          <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
+          </svg>
+        </span>
+        <ul class="absolute left-0 top-full w-48 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
+          <li>
+            <a href="{{ path('prestations_conte') }}"
+               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Le conte
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('prestations_sculpture_conte') }}"
+               class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Sculpture de ballons
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="{{ path('livre_dor') }}" class="text-gray-600 hover:text-gray-900 transition">Livre d’or</a>
+      </li>
+      <li class="relative group">
+        <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
+          Galerie
+          <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
+          </svg>
+        </span>
+        <ul class="absolute left-0 top-full w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
+          <li><a href="{{ path('galerie_photos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Photos</a></li>
+          <li><a href="{{ path('galerie_videos') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Vidéos</a></li>
+        </ul>
+      </li>
+      <li class="relative group">
+        <span class="flex cursor-pointer items-center text-gray-600 hover:text-gray-900 transition">
+          Agenda
+          <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484L16 8.548l-6 6-6-6z"/>
+          </svg>
+        </span>
+        <ul class="absolute left-0 top-full w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block">
+          <li><a href="{{ path('agenda_affiches') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Affiches</a></li>
+          <li><a href="{{ path('agenda_calendrier') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Calendrier</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="{{ path('devis') }}" class="text-gray-600 hover:text-gray-900 transition">Devis</a>
+      </li>
+    </ul>
+
+    <!-- Menu Mobile Button -->
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <ul class="px-4 pt-2 pb-4 space-y-2">
+      <li>
+        <a href="{{ path('homepage') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Accueil</a>
+      </li>
+
+      <!-- Titus le clown (mobile) -->
+      <li>
+        <details class="group">
+          <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">
+            Titus le clown
+          </summary>
+          <ul class="pl-4 mt-1 space-y-1">
+            <li><a href="{{ path('prestations_sur_scene') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Spectacle sur scène</a></li>
+            <li><a href="{{ path('prestations_sculpture_clown') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Sculpture de ballons</a></li>
+            <li><a href="{{ path('prestations_autres') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Autres prestations</a></li>
+          </ul>
+        </details>
+      </li>
+
+      <!-- Titus l'enchanteur (mobile) -->
+      <li>
+        <details class="group">
+          <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">
+            Titus l’enchanteur
+          </summary>
+          <ul class="pl-4 mt-1 space-y-1">
+            <li><a href="{{ path('prestations_conte') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Le conte</a></li>
+            <li><a href="{{ path('prestations_sculpture_conte') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Sculpture de ballons</a></li>
+          </ul>
+        </details>
+      </li>
+
+      <li>
+        <a href="{{ path('livre_dor') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Livre d’or</a>
+      </li>
+      <li>
+        <details class="group">
+          <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Galerie</summary>
+          <ul class="pl-4 mt-1 space-y-1">
+            <li><a href="{{ path('galerie_photos') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Photos</a></li>
+            <li><a href="{{ path('galerie_videos') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Vidéos</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details class="group">
+          <summary class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded cursor-pointer">Agenda</summary>
+          <ul class="pl-4 mt-1 space-y-1">
+            <li><a href="{{ path('agenda_affiches') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Affiches</a></li>
+            <li><a href="{{ path('agenda_calendrier') }}" class="block px-2 py-1 rounded hover:bg-gray-200">Calendrier</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <a href="{{ path('devis') }}" class="block text-gray-600 hover:bg-gray-200 px-2 py-1 rounded">Devis</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+    {# --- Contenu de chaque page (force le conteneur principal à occuper la hauteur restante) --- #}
+    <main class="flex-grow bg-white">
       {% block body %}{% endblock %}
     </main>
 
     {# --- Footer commun à toutes les pages --- #}
-    <footer class="bg-gray-800 text-white py-8">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row md:justify-between md:items-start">
-          <!-- Informations de contact -->
-          <div class="mb-8 md:mb-0">
-            <h2 class="text-xl font-bold mb-4">ANIMATION SCULPTEUR DE BALLONS TITUS</h2>
-            <p class="mb-4">
-              EI SAELENS Thierry<br>
-              situé au Nord (59) de la France
-            </p>
-            <div class="flex items-center mb-2">
-              <svg class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.21 1.11l-2.24 2.12z"/>
+    <div class="bg-white h-12 md:h-16 lg:h-24"></div>
+    <footer class="bg-gray-900 text-white py-6">
+      <div class="w-4/5 mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-40">
+        <!-- Colonne 1 : À propos & réseaux -->
+        <div class="mx-auto max-w-xs space-y-4 md:col-span-1">
+          <h4 class="text-lg font-semibold">Animation sculpteur de ballons</h4>
+          <h5 class="text-md">Titus Animation</h5>
+          <p class="text-gray-400 text-sm">
+            Spécialiste en sculpture de ballons et animations festives,  
+            j’apporte de la couleur et de la joie à vos événements privés et professionnels.
+          </p>
+          <div class="flex space-x-3">
+            <!-- Facebook (cut-out) -->
+            <a href="#" aria-label="Facebook"
+               class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor"/>
+                <path fill="#111827"
+                      d="M13.5 22V13.75h2.5l.375-3H13.5V8.5c0-.875.25-1.5 
+                         1.563-1.5H16.5V4.125A24.625 24.625 0 
+                         0014.188 4C11.906 4 10 5.312 10 8V10.75H7.5v3H10V22h3.5z"/>
               </svg>
-              <span>03.28.41.44.61 / 06.95.59.65.35</span>
-            </div>
-            <div class="flex items-center mb-2">
-              <svg class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/>
-              </svg>
-              <span>
-                <a href="mailto:titusanimations@gmail.com" class="underline hover:text-gray-300">
-                  titusanimations@gmail.com
-                </a>
-              </span>
-            </div>
-            <p class="mb-2">N° S.I.R.E.T. : 514 694 124 00017</p>
-            <p class="italic">"TVA non applicable, article 293 B du CGI."</p>
-          </div>
+            </a>
 
-          <!-- Réseaux sociaux et copyright -->
-          <div class="flex flex-col items-center md:items-end">
-            <div class="flex space-x-6 mb-4">
-              <a href="#" class="hover:text-gray-400 transition">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22,12A10,10,0,1,0,10,22V14H7v-3h3V8a4,4,0,0,1,4-4h3v3H14a1,1,0,0,0-1,1v2h4l-1,3H13v8A10,10,0,0,0,22,12Z"/>
-                </svg>
-              </a>
-              <a href="#" class="hover:text-gray-400 transition">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22.46,6c-.77.35-1.6.59-2.46.69a4.3,4.3,0,0,0,1.88-2.38,8.59,8.59,0,0,1-2.72,1A4.28,4.28,0,0,0,11.46,8,12.14,12.14,0,0,1,3,5.17a4.28,4.28,0,0,0,1.32,5.72,4.24,4.24,0,0,1-1.94-.53v.05a4.28,4.28,0,0,0,3.43,4.19,4.32,4.32,0,0,1-1.93.07,4.28,4.28,0,0,0,4,3A8.59,8.59,0,0,1,2,19.54,12.15,12.15,0,0,0,8.29,21c7.55,0,11.68-6.26,11.68-11.68,0-.18,0-.35,0-.53A8.36,8.36,0,0,0,22.46,6Z"/>
-                </svg>
-              </a>
-              <a href="#" class="hover:text-gray-400 transition">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zM2 6c0-2.8 2.2-5 5-5h10c2.8 0 5 2.2 5 5v12c0 2.8-2.2 5-5 5H7c-2.8 0-5-2.2-5-5V6zm10 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm4-8.5c0 .7-.6 1.3-1.3 1.3S14.4 12.2 14.4 11.5s.6-1.3 1.3-1.3S17 10.8 17 11.5z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="text-sm text-gray-400">&copy; {{ "now"|date("Y") }} Titus Animation. Tous droits réservés.</p>
+            <!-- YouTube (cut-out) -->
+            <a href="#" aria-label="YouTube"
+              class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="6" width="20" height="12" rx="4" fill="currentColor"/>
+                <polygon points="10,9 16,12 10,15" fill="#111827"/>
+              </svg>
+            </a>
+
+            <!-- Instagram (cut-out) -->
+            <a href="#" aria-label="Instagram"
+               class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
+                <circle cx="12" cy="12" r="4" fill="#111827"/>
+                <circle cx="17" cy="7" r="1.5" fill="#111827"/>
+              </svg>
+            </a>
           </div>
         </div>
+
+        <!-- Colonne 2 : Contact -->
+        <div class="mx-auto max-w-xs space-y-4 md:col-span-1 h-full flex flex-col justify-center">
+          <!-- Adresse -->
+          <div class="flex items-center space-x-3">
+            <div class="p-2 bg-gray-800 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <path d="M12 11a2 2 0 100-4 2 2 0 000 4z"/>
+              </svg>
+            </div>
+            <span class="text-sm">Nord (59), France</span>
+          </div>
+          <!-- Téléphone -->
+          <div class="flex items-center space-x-3">
+            <div class="p-2 bg-gray-800 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.72 19.72 0 0 1-8.63-3.07
+                         19.5 19.5 0 0 1-6-6 19.72 19.72 0 0 1-3.07-8.67
+                         A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.74.3
+                         1.47.54 2.17a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 
+                         0 0 0 6 6l1.92-1.07a2 2 0 0 1 2.11-.45c.7.24 
+                         1.43.42 2.17.54A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col text-sm leading-tight">
+              <span>03 28 41 44 61</span>
+              <span>06 95 59 65 35</span>
+            </div>
+          </div>
+          <!-- Email -->
+          <div class="flex items-center space-x-3">
+            <div class="p-2 bg-gray-800 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8l7.5 4.5L18 8"/>
+                <path d="M3 6h15a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V8z"/>
+              </svg>
+            </div>
+            <a href="mailto:titusanimations@gmail.com" class="text-sm hover:text-gray-300">
+              titusanimations@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Colonne 3 : Mentions légales -->
+        <div class="mx-auto max-w-xs space-y-4 md:col-span-1 text-xs text-gray-400 h-full flex flex-col justify-center space-y-2">
+          <p class="font-medium">EI SAELENS Thierry</p>
+          <p>N° S.I.R.E.T. : 514 694 124 00017</p>
+          <p class="italic">TVA non applicable, article 293 B du CGI.</p>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="mt-6 text-center text-xs text-gray-500">
+        &copy; {{ "now"|date("Y") }} Titus Animation. Tous droits réservés.
       </div>
     </footer>
-
-
-    {# Nous avons retiré le bloc javascripts du footer pour éviter de charger à nouveau le bundle #}
   </body>
 </html>

@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestations – Sculpture de ballons{% endblock %}
+
+{% block body %}
+  <div class="flex flex-col min-h-screen bg-gray-50">
+    <!-- Hero -->
+    <section class="pt-20 pb-16 bg-gradient-to-b from-white to-gray-100">
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
+          <h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            L’art de la sculpture de ballons par Titus<br>
+            <span class="text-indigo-600">Humour, Rire et Passion</span>
+          </h1>
+          <a href="{{ path('devis') ~ '?type_devis=sculpture_clown' }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
+            Demander un devis
+          </a>
+        </div>
+
+        <div class="space-y-16">
+          <!-- Animation sculptures -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Animation sculptures de ballons</h2>
+              <p class="text-lg text-gray-600 mb-4">Titus vous propose une animation sculptures de ballons</p>
+              <p class="text-lg text-gray-600">Durée : à déterminer par l’organisateur<br>Au choix : en place fixe ou en vélo</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sculpture_clown1.jpg') }}" alt="Animation sculptures" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+
+          <!-- Univers de ballons -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/sculpture_clown2.jpg') }}" alt="Univers de ballons" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Sourire et émerveillement</h2>
+              <p class="text-lg text-gray-600">Bienvenue dans l’univers de la sculpture de ballons, où chaque forme, chaque couleur prend vie pour apporter sourire et émerveillement.</p>
+            </div>
+          </div>
+
+          <!-- Humour et poésie -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Humour et poésie</h2>
+              <p class="text-lg text-gray-600">Que ce soit en vélo ou en prestation fixe, Titus sculpte des ballons en mettant l’humour et la poésie au cœur de chaque animation captivant petits et grands.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sculpture_clown3.jpg') }}" alt="Humour et poésie" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+
+          <!-- Clown décalé -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/sculpture_clown4.jpg') }}" alt="Clown décalé" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Clown et interaction</h2>
+              <p class="text-lg text-gray-600">En clown, il crée une atmosphère joyeuse et décalée en interagissant avec le public et en apportant un soupçon de folie.</p>
+            </div>
+          </div>
+
+          <!-- Acrobate mobile -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Déambulation à vélo</h2>
+              <p class="text-lg text-gray-600">En déambulation à vélo, il se transforme en un véritable acrobate des ballons, apportant une touche dynamique et mobile à votre événement.</p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img src="{{ asset('build/images/sculpture_clown5.jpg') }}" alt="Déambulation vélo" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion et CTA -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Un art en mouvement</h2>
+        <p class="text-xl text-gray-600 mb-8">Découvrez l’art de la sculpture de ballons par Titus, où humour, rire et passion se conjuguent pour sublimer votre événement.</p>
+        <a  href="{{ path('devis') ~ '?type_devis=sculpture_clown' }}"  class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Réservez votre animation</a>
+      </div>
+    </section>
+  </div>
+{% endblock %}
