@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Commentaire;
-use App\Entity\ImageSlider;
 use App\Entity\ImageGallery;
 use App\Entity\VideoGallery;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -56,7 +55,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Commentaires', 'fas fa-comments', Commentaire::class);
-        yield MenuItem::linkToCrud('Sliders', 'fas fa-images', ImageSlider::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-images', ImageGallery::class);
         yield MenuItem::linkToCrud('Vidéos', 'fas fa-video', VideoGallery::class);
 
