@@ -88,5 +88,6 @@
         <a href="{{ path('devis') ~ '?type_devis=autres' }}" class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Demander un devis</a>
       </div>
     </section>
+  {% include 'prestations/gallery.html.twig' with { images: images } %}
   </div>
 {% endblock %}

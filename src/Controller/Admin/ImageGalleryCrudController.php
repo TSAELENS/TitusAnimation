@@ -46,11 +46,11 @@ class ImageGalleryCrudController extends AbstractCrudController
                 ->setLabel('Image à uploader'),
             ChoiceField::new('page')
                 ->setChoices([
-                    'Sur scène' => 1,
-                    'Sculpture fixe' => 2,
-                    'Sculpture mobile' => 3,
-                    'Décoration' => 4,
-                    'Conte (médiéval)' => 5,
+                    'Prestations Sur Scene' => 1,
+                    'Prestations Sculpture Clown' => 2,
+                    'Prestations Sculpture Conte' => 3,
+                    'Prestations Conte' => 4,
+                    'Prestations Autres' => 5,
                 ])
                 ->renderAsBadges([
                     1 => 'primary',
