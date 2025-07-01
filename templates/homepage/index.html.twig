@@ -7,21 +7,14 @@
 
 
 <section class="bg-gray-900 pt-22 pb-8 flex items-center justify-center">
-  <div class="bg-white rounded shadow py-8 px-8 relative overflow-visible" style="width: 1000px;">
+  <div class="bg-white rounded shadow py-8 px-6 sm:px-8 relative overflow-visible w-full max-w-5xl">
     <img 
       src="{{ asset('build/images/home-removebg.png') }}" 
       alt="Clown Titus" 
-      style="
-        width: 350px;
-        height: auto;
-        position: absolute;
-        left: -115px;
-        top: -64px;
-        z-index: 10;
-      "
+      class="absolute w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] left-[-60px] sm:left-[-80px] md:left-[-100px] lg:left-[-115px] top-[-50px] md:top-[-64px] z-10"
     >
-    <div class="bg-white relative mx-auto " style="width: 850px; left:40px">
-      <h2 class="text-3xl font-bold mb-4">Bienvenue dans l’univers de Titus </h2>
+    <div class="bg-white relative mx-auto ml-0 sm:ml-16 md:ml-24">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Bienvenue dans l’univers de Titus </h2>
       <p class="mb-4">
         Un artiste clown et sculpteur de ballons dont la passion n’a d’égal que sa créativité. 
         Depuis plus de 15 ans, il émerveille les petits comme les grands avec des spectacles hauts en couleur, 
@@ -103,30 +96,30 @@
   </section>
 
 
-  <section class="pt-10 pb-20 bg-gray-100">
-    <div class="container mx-auto px-6 lg:px-8 ">
-      <h2 class="text-4xl font-bold text-gray-800 text-center mb-12">Ils témoignent</h2>
+<section class="pt-10 pb-20 bg-gray-100">
+  <div class="container mx-auto px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-gray-800 text-center mb-12">Ils témoignent</h2>
 
-      <div class="relative">
-        <!-- Carrousel -->
-        <div class="flex x-auto space-x-6 px-4"        >
-          <div class="snap-center flex-none w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
-            <p class="italic text-gray-700">Titus a transformé notre mariage en conte de fées !</p>
-            <p class="mt-4 font-semibold text-indigo-600">– Marie & Paul</p>
-          </div>
-          <div class="snap-center flex-none w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
-            <p class="italic text-gray-700">Les anniversaires de mes enfants sont magiques grâce à lui.</p>
-            <p class="mt-4 font-semibold text-indigo-600">– Sophie</p>
-          </div>
-          <div class="snap-center flex-none w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
-            <p class="italic text-gray-700">Un artiste passionné, hautement recommandé !</p>
-            <p class="mt-4 font-semibold text-indigo-600">– Julien</p>
-          </div>
+    <div class="relative">
+      <!-- Carrousel horizontal scrollable -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory space-x-6 px-4 -mx-4 sm:-mx-0">
+        <div class="snap-center flex-none w-[90%] sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
+          <p class="italic text-gray-700">Titus a transformé notre mariage en conte de fées !</p>
+          <p class="mt-4 font-semibold text-indigo-600">– Marie & Paul</p>
         </div>
-
+        <div class="snap-center flex-none w-[90%] sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
+          <p class="italic text-gray-700">Les anniversaires de mes enfants sont magiques grâce à lui.</p>
+          <p class="mt-4 font-semibold text-indigo-600">– Sophie</p>
+        </div>
+        <div class="snap-center flex-none w-[90%] sm:w-3/4 md:w-1/2 lg:w-1/3 p-6 bg-white rounded-lg shadow text-center">
+          <p class="italic text-gray-700">Un artiste passionné, hautement recommandé !</p>
+          <p class="mt-4 font-semibold text-indigo-600">– Julien</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 <!-- Footer CTA -->
 <section class="bg-white pt-16 text-center">
