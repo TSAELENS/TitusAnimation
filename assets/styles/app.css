@@ -25,3 +25,13 @@ body {
   outline: 2px solid #f59e0b;
   border-radius: 50%;
 }
+
+/* Masquer scrollbar proprement */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
