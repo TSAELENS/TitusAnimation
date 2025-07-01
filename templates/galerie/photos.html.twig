@@ -9,9 +9,11 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {% for image in images %}
     <div class="overflow-hidden rounded-lg shadow-lg">
-      <img src="{{ asset('uploads/gallery/' ~ image.image) }}" alt="{{ image.titre }}" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
+      <img src="{{ asset('uploads/gallery/' ~ image.image) }}"
+           alt="{{ image.titre }}"
+           class="w-full object-cover hover:scale-105 transition duration-300" />
     </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 </section>
 {% endblock %}
