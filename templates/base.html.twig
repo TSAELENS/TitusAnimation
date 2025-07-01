@@ -7,23 +7,20 @@
     {% block stylesheets %}
       {{ encore_entry_link_tags('app') }}
     {% endblock %}
-    
-    <script data-turbo-permanent>
-      document.addEventListener('turbo:load', () => {
-        (function(){
-          if (!window.menuButtonInitialized) {
-            const menuButton = document.getElementById('mobile-menu-button');
-            if (menuButton) {
-              menuButton.addEventListener('click', () => {
-                const mobileMenu = document.getElementById('mobile-menu');
-                mobileMenu.classList.toggle('hidden');
-              });
-            }
-            window.menuButtonInitialized = true;
-          }
-        })();
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+          menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
       });
     </script>
+
   </head>
 
   <body class="min-h-screen flex flex-col">

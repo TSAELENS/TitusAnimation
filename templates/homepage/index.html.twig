@@ -127,12 +127,4 @@
   <a href="{{ path('devis') ~ '?type_devis=sur_scene' }}" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition">Demander un devis</a>
 </section>
 
-  {# --- Script pour le menu mobile --- #}
-  <script>
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
 {% endblock %}
