@@ -6,6 +6,8 @@ use App\Repository\AfficheRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\CalendrierRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AgendaController extends AbstractController
 {
@@ -23,5 +25,23 @@ class AgendaController extends AbstractController
     public function calendrier(): Response
     {
         return $this->render('agenda/calendrier.html.twig');
+    }
+
+    #[Route('/agenda/calendrier/data', name: 'agenda_calendrier_data')]
+    public function calendrierData(CalendrierRepository $repo): JsonResponse
+    {
+        $evenements = $repo->findAll();
+
+        $data = [];
+
+        foreach ($evenements as $event) {
+            $data[] = [
+                'date' => $event->getDate()->format('Y-m-d'),
+                'etat' => $event->getEtat(),
+                'description' => $event->getDescription(),
+            ];
+        }
+
+        return new JsonResponse($data);
     }
 }
