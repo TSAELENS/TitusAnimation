@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\CommentaireRepository;
+use App\Repository\ImageGalleryRepository;
 
 
 class HomepageController extends AbstractController
@@ -23,13 +24,15 @@ class HomepageController extends AbstractController
     // #[Route('/agenda/affiches', name: 'agenda_affiches')]
     // #[Route('/agenda/calendrier', name: 'agenda_calendrier')]
     // #[Route('/devis', name: 'devis')]
-    public function index(CommentaireRepository $commentaireRepository): Response
+    public function index(CommentaireRepository $commentaireRepository, ImageGalleryRepository $imageGalleryRepository): Response
     {
         $commentaire = $commentaireRepository->findBy(['accueil' => true]);
+        $images = $imageGalleryRepository->findBy(['accueil' => true]);
 
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
-             'commentaire' => $commentaire
+            'commentaire' => $commentaire,
+            'images' => $images
         ]);
     }
 
