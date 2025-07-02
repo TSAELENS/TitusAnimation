@@ -115,4 +115,21 @@ class Commentaire
             $this->dateValidation = null; // facultatif si tu veux l'effacer si on dévalide
         }
     }
+
+
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $accueil = false;
+
+    public function isAccueil(): ?bool
+    {
+        return $this->accueil;
+    }
+
+    public function setAccueil(bool $accueil): static
+    {
+        $this->accueil = $accueil;
+        return $this;
+    }
+
+
 }
