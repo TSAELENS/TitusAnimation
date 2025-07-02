@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\ImageGallery;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -44,22 +43,6 @@ class ImageGalleryCrudController extends AbstractCrudController
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms()
                 ->setLabel('Image à uploader'),
-            ChoiceField::new('page')
-                ->setChoices([
-                    'Prestations Sur Scene' => 1,
-                    'Prestations Sculpture Clown' => 2,
-                    'Prestations Sculpture Conte' => 3,
-                    'Prestations Conte' => 4,
-                    'Prestations Autres' => 5,
-                ])
-                ->renderAsBadges([
-                    1 => 'primary',
-                    2 => 'info',
-                    3 => 'success',
-                    4 => 'warning',
-                    5 => 'danger',
-                ])
-                ->setFormTypeOption('empty_data', 0),
         ];
     }
 }

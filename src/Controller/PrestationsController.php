@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ImageGallery;
+use App\Entity\Prestation;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -67,7 +68,7 @@ class PrestationsController extends AbstractController
     #[Route('/prestations/autres', name: 'prestations_autres')]
     public function autres(EntityManagerInterface $em): Response
     {
-        $images = $em->getRepository(ImageGallery::class)->findBy(['page' => 4]);
+        $images = $em->getRepository(Prestation::class)->findBy(['page' => 5]);
 
         $formattedImages = [];
         foreach ($images as $image) {
