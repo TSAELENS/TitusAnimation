@@ -24,14 +24,28 @@
               <p class="text-lg text-gray-600">C’est un conte unique, sonorisé où Titus l’enchanteur vous invite à une exploration épique où le fantastique se mêle à la magie de l’instant.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/conte1.jpg') }}" alt="Aventure immersive" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img1 = images[0] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img1.url) }}"
+                alt="{{ img1.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
           <!-- Décor & ambiance -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/conte2.jpg') }}" alt="Décor & ambiance" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img2 = images[1] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img2.url) }}"
+                alt="{{ img2.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Décor & ambiance grandioses</h2>
@@ -49,7 +63,14 @@
               <p class="text-lg text-gray-600 mt-4">« Le Secret de la Vallée Gardée » est bien plus qu’un simple conte, c’est un voyage, une aventure où la magie de la légende rencontre l’innovation du spectacle. Un moment inoubliable où chaque minute est une nouvelle découverte, pour petits et grands.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/conte3.jpg') }}" alt="Interaction moderne" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img3 = images[1] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img3.url) }}"
+                alt="{{ img3.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 

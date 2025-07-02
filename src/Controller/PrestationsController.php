@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\ImageGallery;
 use App\Entity\Prestation;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +13,11 @@ class PrestationsController extends AbstractController
     #[Route('/prestations/sur-scene', name: 'prestations_sur_scene')]
     public function surScene(EntityManagerInterface $em): Response
     {
-        $images = $em->getRepository(ImageGallery::class)->findBy(['page' => 1]);
+        $images = $em->getRepository(Prestation::class)
+            ->findBy(
+                ['page' => 1],
+                ['position' => 'ASC']
+            );
 
         $formattedImages = [];
         foreach ($images as $image) {
@@ -32,7 +35,11 @@ class PrestationsController extends AbstractController
     #[Route('/prestations/sculpture-clown', name: 'prestations_sculpture_clown')]
     public function sculptureClown(EntityManagerInterface $em): Response
     {
-        $images = $em->getRepository(ImageGallery::class)->findBy(['page' => 2]);
+        $images = $em->getRepository(Prestation::class)
+            ->findBy(
+                ['page' => 2],
+                ['position' => 'ASC']
+            );
 
         $formattedImages = [];
         foreach ($images as $image) {
@@ -50,7 +57,11 @@ class PrestationsController extends AbstractController
     #[Route('/prestations/sculpture-conte', name: 'prestations_sculpture_conte')]
     public function sculptureConte(EntityManagerInterface $em): Response
     {
-        $images = $em->getRepository(ImageGallery::class)->findBy(['page' => 3]);
+        $images = $em->getRepository(Prestation::class)
+            ->findBy(
+                ['page' => 3],
+                ['position' => 'ASC']
+            );
 
         $formattedImages = [];
         foreach ($images as $image) {
@@ -68,7 +79,11 @@ class PrestationsController extends AbstractController
     #[Route('/prestations/autres', name: 'prestations_autres')]
     public function autres(EntityManagerInterface $em): Response
     {
-        $images = $em->getRepository(Prestation::class)->findBy(['page' => 5]);
+        $images = $em->getRepository(Prestation::class)
+            ->findBy(
+                ['page' => 5],
+                ['position' => 'ASC']
+            );
 
         $formattedImages = [];
         foreach ($images as $image) {
@@ -86,7 +101,11 @@ class PrestationsController extends AbstractController
     #[Route('/prestations/conte', name: 'prestations_conte')]
     public function conte(EntityManagerInterface $em): Response
     {
-        $images = $em->getRepository(ImageGallery::class)->findBy(['page' => 5]);
+        $images = $em->getRepository(Prestation::class)
+            ->findBy(
+                ['page' => 4],
+                ['position' => 'ASC']
+            );
 
         $formattedImages = [];
         foreach ($images as $image) {

@@ -28,14 +28,28 @@
               <p class="text-lg text-gray-600">Titus vous propose aussi d’intervenir lors de vos évènements personnels, familiaux …</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('uploads/prestation/' ~ formattedImages[0].image) }}" alt="Autres prestations" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img1 = images[0] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img1.url) }}"
+                alt="{{ img1.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
           <!-- Anniversaire enfants -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/autres2.jpg') }}" alt="Anniversaire enfants" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img2 = images[1] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img2.url) }}"
+                alt="{{ img2.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Anniversaire enfants (1h30)</h2>
@@ -50,14 +64,28 @@
               <p class="text-lg text-gray-600">Titus peut également intervenir lors de votre mariage, au vin d’honneur ou en soirée pour amuser les enfants présents avec de la sculpture de ballons. Une surprise est prévue en plus pour les mariés !</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/autres3.jpg') }}" alt="Mariage" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img3 = images[2] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img3.url) }}"
+                alt="{{ img3.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
           <!-- Autres fêtes -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/autres4.jpg') }}" alt="Autres fêtes" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img4 = images[3] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img4.url) }}"
+                alt="{{ img4.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Autres fêtes</h2>
@@ -72,7 +100,14 @@
               <p class="text-lg text-gray-600">Envie de faire un cadeau à une personne ou un enfant : il peut aussi vous sculpter à votre demande un personnage, un animal. Besoin d'une décoration pour un lieu (salle, vitrine...) Titus proposera des sculptures selon votre thème.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/autres5.jpg') }}" alt="Cadeau personnalisé" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img5 = images[4] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img5.url) }}"
+                alt="{{ img5.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
