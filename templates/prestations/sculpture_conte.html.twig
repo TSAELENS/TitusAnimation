@@ -26,13 +26,27 @@
               <p class="text-lg text-gray-600">Durée : à déterminer par l’organisateur<br>Au choix : en place fixe ou en charrette mobile</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sculpture_conte1.jpg') }}" alt="Durée et formats" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img1 = images[0] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img1.url) }}"
+                alt="{{ img1.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
           <!-- Univers médiéval -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/sculpture_conte2.jpg') }}" alt="Univers médiéval" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img2 = images[1] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img2.url) }}"
+                alt="{{ img2.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Voyage au cœur du Moyen Âge</h2>
@@ -46,13 +60,27 @@
               <p class="text-lg text-gray-600">En animation fixe ou en déambulation, Titus et sa charrette en bois créent une ambiance envoûtante au son des musiques médiévales.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sculpture_conte3.jpg') }}" alt="Animation médiévale" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img3 = images[2] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img3.url) }}"
+                alt="{{ img3.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
           <!-- Humour et distribution -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/sculpture_conte4.jpg') }}" alt="Humour et distribution" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img4 = images[3] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img4.url) }}"
+                alt="{{ img4.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Humour et gourmandise</h2>
@@ -66,7 +94,14 @@
               <p class="text-lg text-gray-600">Prestation idéale pour fêtes à thème (sorcières, médiévales, féériques, etc.). Laissez-vous emporter dans un univers où l’humour de Titus charmera petits et grands.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sculpture_conte5.jpg') }}" alt="Thèmes et magie" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img5 = images[4] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img5.url) }}"
+                alt="{{ img5.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
         </div>
