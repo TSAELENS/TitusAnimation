@@ -45,7 +45,7 @@ class ImageGalleryCrudController extends AbstractCrudController
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms()
                 ->setLabel('Image à uploader'),
-            BooleanField::new('accueil', 'Afficher sur la page d’accueil'),
+            BooleanField::new('accueil', 'Afficher sur la page d’accueil')->renderAsSwitch(false),
 
         ];
     }

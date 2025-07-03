@@ -26,8 +26,8 @@ class CommentaireCrudController extends AbstractCrudController
             ->setEntityLabelInPlural('Commentaires')
             ->setPageTitle(Crud::PAGE_INDEX, 'Gestion des commentaires')
             ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un nouveau Commentaire')
-            ->setPageTitle(Crud::PAGE_EDIT, fn ($entity) => sprintf('Modifier « %s »', $entity->getTitre()))
-            ->setPageTitle(Crud::PAGE_DETAIL, fn ($entity) => sprintf('Détail de « %s »', $entity->getTitre()))
+            ->setPageTitle(Crud::PAGE_EDIT, fn ($entity) => sprintf('Modifier « %s »', $entity->getContenu()))
+            ->setPageTitle(Crud::PAGE_DETAIL, fn ($entity) => sprintf('Détail de « %s »', $entity->getContenu()))
             ->setPaginatorPageSize(20)
             ->showEntityActionsInlined(); // optionnel pour style + lisible
     }
@@ -39,9 +39,9 @@ class CommentaireCrudController extends AbstractCrudController
             TextEditorField::new('contenu'),
             DateTimeField::new('date_creation')->hideOnForm(),
             TextField::new('auteur'),
-            BooleanField::new('est_publie'),
+            BooleanField::new('est_publie')->renderAsSwitch(false),
             DateTimeField::new('date_validation')->hideOnForm(),
-            BooleanField::new('accueil', 'Afficher sur l’accueil'),
+            BooleanField::new('accueil', 'Afficher sur l’accueil')->renderAsSwitch(false),
         ];
     }
 
