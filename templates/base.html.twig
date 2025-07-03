@@ -7,23 +7,20 @@
     {% block stylesheets %}
       {{ encore_entry_link_tags('app') }}
     {% endblock %}
-    
-    <script data-turbo-permanent>
-      document.addEventListener('turbo:load', () => {
-        (function(){
-          if (!window.menuButtonInitialized) {
-            const menuButton = document.getElementById('mobile-menu-button');
-            if (menuButton) {
-              menuButton.addEventListener('click', () => {
-                const mobileMenu = document.getElementById('mobile-menu');
-                mobileMenu.classList.toggle('hidden');
-              });
-            }
-            window.menuButtonInitialized = true;
-          }
-        })();
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+          menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
       });
     </script>
+
   </head>
 
   <body class="min-h-screen flex flex-col">
@@ -215,7 +212,7 @@
           </p>
           <div class="flex space-x-3">
             <!-- Facebook (cut-out) -->
-            <a href="#" aria-label="Facebook"
+            <a href="https://www.facebook.com/people/Titus-animations-Officiel/100057373875825/" aria-label="Facebook"
                class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor"/>
@@ -227,7 +224,7 @@
             </a>
 
             <!-- YouTube (cut-out) -->
-            <a href="#" aria-label="YouTube"
+            <a href="https://www.youtube.com/@titusanimations4054" aria-label="YouTube"
               class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition">
               <svg class="h-7 w-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="6" width="20" height="12" rx="4" fill="currentColor"/>
@@ -236,12 +233,20 @@
             </a>
 
             <!-- Instagram (cut-out) -->
-            <a href="#" aria-label="Instagram"
+            <a href="https://www.instagram.com/titus.animations/?hl=fr" aria-label="Instagram"
                class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
                 <circle cx="12" cy="12" r="4" fill="#111827"/>
                 <circle cx="17" cy="7" r="1.5" fill="#111827"/>
+              </svg>
+            </a>
+
+            <!-- TikTok (cut-out) -->
+            <a href="https://www.tiktok.com/@titusleclown" aria-label="TikTok"
+              class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 256 256" fill="currentColor">
+                <path d="M164.3 48.1a48.2 48.2 0 0 0 27.6 8.5v30.6a78.8 78.8 0 0 1-27.6-5.1v65.3a60.8 60.8 0 1 1-60.7-60.8 58.9 58.9 0 0 1 11.8 1.2v30.9a30.3 30.3 0 0 0-11.8-2.5 30.4 30.4 0 1 0 30.4 30.4V16h30.3v32.1Z"/>
               </svg>
             </a>
           </div>

@@ -4,17 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const calendarEl = document.querySelector('#calendar');
   if (!calendarEl) return;
 
-  // Données statiques (à remplacer plus tard par ton fetch)
-  const data = {
-    "2025-04-03": "disponible",
-    "2025-04-05": "reserve",
-    "2025-04-09": "ferme",
-    "2025-04-015": "disponible",
-    "2025-05-01": "disponible",
-    "2025-05-02": "reserve",
-    "2025-05-04": "ferme",
-    "2025-05-08": "disponible"
-  };
+  let data = {};
+
+  fetch('/agenda/calendrier/data')
+    .then(res => res.json())
+    .then(events => {
+      // Transformer les données en objet clé/valeur pour un accès rapide
+      events.forEach(event => {
+        let status = '';
+        if (event.etat === 0) status = 'ferme';
+        else if (event.etat === 1) status = 'disponible';
+        else if (event.etat === 2) status = 'reserve';
+        data[event.date] = {
+          etat: status,
+          description: event.description
+        };
+      });
+
+      // Refresh pour appliquer les couleurs une fois les données reçues
+      calendar.refresh();
+    });
+
 
 
   // --- Initialisation du calendrier
@@ -22,34 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Appliquer les classes selon les dispos
   calendar.onDateRender((date, element) => {
-    const dateStr = date.toISOString().slice(0,10);
-    const etat = data[dateStr];
-    if (etat) {
-      element.classList.add(`etat-${etat}`);
+    const dateStr = date.toISOString().slice(0, 10);
+    if (data[dateStr]) {
+      element.classList.add(`etat-${data[dateStr].etat}`);
     }
   });
 
-  // Gérer le clic sur une date
-  calendar.onDateClick((event, date) => {
-    // Supprimer l'ancienne sélection
-    document.querySelectorAll('.jsCalendar td.selected').forEach(el => el.classList.remove('selected'));
-    // Marquer la nouvelle
-    event.target.classList.add('selected');
+ calendar.onDateClick((event, date) => {
+  document.querySelectorAll('.jsCalendar td.selected').forEach(el => el.classList.remove('selected'));
+  event.target.classList.add('selected');
 
-    const details = document.getElementById("event-details");
-    const formattedDate = date.toLocaleDateString("fr-FR", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
-        details.innerHTML = `
-      <h2 class="text-xl font-bold mb-2">Détails</h2>
-      <p class="text-gray-700">Date sélectionnée :</p>
-      <p class="text-gray-900 font-semibold">${formattedDate}</p>
-    `;
-
+  const dateStr = date.toISOString().slice(0, 10);
+  const formattedDate = date.toLocaleDateString("fr-FR", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
   });
+
+  const details = document.getElementById("event-details");
+  details.innerHTML = `
+    <h2 class="text-xl font-bold mb-2">Détails</h2>
+    <p class="text-gray-700">Date sélectionnée :</p>
+    <p class="text-gray-900 font-semibold">${formattedDate}</p>
+    <p class="text-gray-600 mt-2">${data[dateStr]?.description || "Aucune information."}</p>
+  `;
+});
+
 
   // Forcer le rendu initial
   calendar.refresh();

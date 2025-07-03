@@ -36,4 +36,5 @@ class GalerieController extends AbstractController
             'videos' => $videos,
         ]);
     }
+
 }

@@ -30,14 +30,28 @@
               <p class="text-lg text-gray-600">Un spectacle unique alliant humour, poésie et magie des ballons sculptés.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sur_scene1.jpg') }}" alt="Grenier magique" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img1 = images[0] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img1.url) }}"
+                alt="{{ img1.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
           <!-- Découverte de la lampe magique -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/sur_scene2.jpg') }}" alt="Lampe magique" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img2 = images[1] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img2.url) }}"
+                alt="{{ img2.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Un grenier pas comme les autres</h2>
@@ -54,14 +68,28 @@
               <p class="text-lg text-gray-600">Ballons, magie et rires sont au rendez-vous pour une aventure pleine de surprises et de rebondissements !</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sur_scene3.jpg') }}" alt="Voyage temporel" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img3 = images[2] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img3.url) }}"
+                alt="{{ img3.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
           <!-- Interaction avec le public -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/sur_scene4.jpg') }}" alt="Spectacle interactif" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img4 = images[3] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img4.url) }}"
+                alt="{{ img4.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Un spectacle interactif</h2>
@@ -76,7 +104,14 @@
               <p class="text-lg text-gray-600">Venez découvrir ce spectacle dynamique, moderne, et plein de fantaisie, où l’humour et les ballons sculptés transforment l’ordinaire en extraordinaire.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sur_scene5.jpg') }}" alt="Fantaisie et humour" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img5 = images[4] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img5.url) }}"
+                alt="{{ img5.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 

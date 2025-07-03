@@ -28,6 +28,9 @@ class ImageGallery
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    // #[ORM\Column(type: 'integer', nullable: false)]
+    // private ?int $page = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -81,5 +84,44 @@ class ImageGallery
         if ($imageFile !== null) {
             $this->updatedAt = new \DateTimeImmutable();
         }
+    }
+
+    // public function getPage(): ?int
+    // {
+    //     return $this->page;
+    // }
+
+    // public function setPage(int $page): self
+    // {
+    //     $this->page = $page;
+    //     return $this;
+    // }
+
+    // // Optionnel : mapping entre l’entier et le label
+    // public const PAGES = [
+    //     1 => 'Sur scène',
+    //     2 => 'Sculpture fixe',
+    //     3 => 'Sculpture mobile',
+    //     4 => 'Décoration',
+    //     5 => 'Conte (médiéval)',
+    // ];
+
+    // public function getPageLabel(): string
+    // {
+    //     return self::PAGES[$this->page] ?? 'Inconnu';
+    // }
+
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $accueil = false;
+
+    public function isAccueil(): ?bool
+    {
+        return $this->accueil;
+    }
+
+    public function setAccueil(bool $accueil): static
+    {
+        $this->accueil = $accueil;
+        return $this;
     }
 }

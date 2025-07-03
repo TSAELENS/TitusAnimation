@@ -12,10 +12,10 @@
           <a href="{{ path('devis') ~ '?type_devis=conte_medieval' }}" class="mt-8 lg:mt-0 inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">Demander un devis</a>
         </div>
 
-        <!-- Sections modernes intégrant le texte original -->
+        <!-- Sections -->
         <div class="space-y-16">
 
-          <!-- Aventure immersive -->
+          <!-- Partie 1 -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="order-2 lg:order-1">
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Une aventure immersive</h2>
@@ -28,7 +28,7 @@
             </div>
           </div>
 
-          <!-- Décor & ambiance -->
+          <!-- Partie 2 -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img src="{{ asset('build/images/conte2.jpg') }}" alt="Décor & ambiance" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
@@ -40,16 +40,27 @@
             </div>
           </div>
 
-          <!-- Interaction & modernité -->
+          <!-- Partie 3 -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="order-2 lg:order-1">
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Interaction & modernité</h2>
               <p class="text-lg text-gray-600 mb-4">À travers un jeu dynamique et innovant, le personnage mène le public dans un voyage de rencontres étonnantes qui donnent vie à un monde ancien.</p>
               <p class="text-lg text-gray-600">Les sculptures et le décor contribuent à une expérience visuelle, où le passé et le présent se rencontrent pour offrir un spectacle moderne.</p>
-              <p class="text-lg text-gray-600 mt-4">« Le Secret de la Vallée Gardée » est bien plus qu’un simple conte, c’est un voyage, une aventure où la magie de la légende rencontre l’innovation du spectacle. Un moment inoubliable où chaque minute est une nouvelle découverte, pour petits et grands.</p>
             </div>
             <div class="order-1 lg:order-2">
               <img src="{{ asset('build/images/conte3.jpg') }}" alt="Interaction moderne" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+
+          <!-- Partie 4 -->
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="{{ asset('build/images/conte4.jpg') }}" alt="Transmission et émotions" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div>
+              <h2 class="text-3xl font-bold text-gray-800 mb-4">Transmission & émotions</h2>
+              <p class="text-lg text-gray-600 mb-4">Le conte transmet des valeurs fortes telles que le courage, la solidarité et la curiosité. Il touche toutes les générations et fait vibrer les cœurs.</p>
+              <p class="text-lg text-gray-600">Un moment partagé, riche en émotions, où chacun peut repartir avec des étoiles plein les yeux.</p>
             </div>
           </div>
 
@@ -57,7 +68,7 @@
       </div>
     </section>
 
-    <!-- Conclusion et CTA -->
+    <!-- CTA final -->
     <section class="bg-white py-16">
       <div class="container mx-auto px-6 lg:px-8 text-center">
         <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Un moment inoubliable</h2>

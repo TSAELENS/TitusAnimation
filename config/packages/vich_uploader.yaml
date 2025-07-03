@@ -9,6 +9,10 @@ vich_uploader:
             uri_prefix: /uploads/gallery
             upload_destination: '%kernel.project_dir%/public/uploads/gallery'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        prestation:
+            uri_prefix: /uploads/prestation
+            upload_destination: '%kernel.project_dir%/public/uploads/prestation'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
     #mappings:
     #    products:

@@ -26,14 +26,28 @@
               <p class="text-lg text-gray-600">Durée : à déterminer par l’organisateur<br>Au choix : en place fixe ou en vélo</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sculpture_clown1.jpg') }}" alt="Animation sculptures" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img1 = images[0] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img1.url) }}"
+                alt="{{ img1.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
           <!-- Univers de ballons -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/sculpture_clown2.jpg') }}" alt="Univers de ballons" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img2 = images[1] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img2.url) }}"
+                alt="{{ img2.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Sourire et émerveillement</h2>
@@ -48,14 +62,28 @@
               <p class="text-lg text-gray-600">Que ce soit en vélo ou en prestation fixe, Titus sculpte des ballons en mettant l’humour et la poésie au cœur de chaque animation captivant petits et grands.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sculpture_clown3.jpg') }}" alt="Humour et poésie" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img3 = images[2] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img3.url) }}"
+                alt="{{ img3.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
 
           <!-- Clown décalé -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="{{ asset('build/images/sculpture_clown4.jpg') }}" alt="Clown décalé" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img4 = images[3] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img4.url) }}"
+                alt="{{ img4.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
             <div>
               <h2 class="text-3xl font-bold text-gray-800 mb-4">Clown et interaction</h2>
@@ -70,7 +98,14 @@
               <p class="text-lg text-gray-600">En déambulation à vélo, il se transforme en un véritable acrobate des ballons, apportant une touche dynamique et mobile à votre événement.</p>
             </div>
             <div class="order-1 lg:order-2">
-              <img src="{{ asset('build/images/sculpture_clown5.jpg') }}" alt="Déambulation vélo" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            {% if images|length > 0 %}
+              {% set img5 = images[4] %}
+              <img
+                src="{{ asset('uploads/prestation/' ~ img5.url) }}"
+                alt="{{ img5.title }}"
+                class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
+              >
+            {% endif %}
             </div>
           </div>
         </div>

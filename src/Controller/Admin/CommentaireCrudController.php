@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+
 class CommentaireCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -40,6 +41,12 @@ class CommentaireCrudController extends AbstractCrudController
             TextField::new('auteur'),
             BooleanField::new('est_publie'),
             DateTimeField::new('date_validation')->hideOnForm(),
+            BooleanField::new('accueil', 'Afficher sur l’accueil'),
         ];
     }
+
+
+
+
+
 }

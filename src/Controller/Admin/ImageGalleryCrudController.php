@@ -10,6 +10,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+
 
 class ImageGalleryCrudController extends AbstractCrudController
 {
@@ -43,6 +45,8 @@ class ImageGalleryCrudController extends AbstractCrudController
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms()
                 ->setLabel('Image à uploader'),
+            BooleanField::new('accueil', 'Afficher sur la page d’accueil'),
+
         ];
     }
 }

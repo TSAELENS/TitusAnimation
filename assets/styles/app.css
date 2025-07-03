@@ -6,22 +6,61 @@ body {
 }
 
 .etat-disponible {
-  background-color: #3DAE2B !important;
+  background-color: #16a34a; /* vert */
   color: white;
+  border-radius: 50%;
 }
 .etat-reserve {
-  background-color: #EAC36C !important;
+  background-color: #facc15; /* jaune */
+  color: black;
+  border-radius: 50%;
 }
 .etat-ferme {
-  background-color: #ccc !important;
-  color: #666;
+  background-color: #9ca3af; /* gris */
+  color: white;
+  border-radius: 50%;
 }
+
 .jsCalendar-current {
     background: transparent !important;
     color: inherit !important;
   }
-  
+.jsCalendar td.etat-disponible,
+.jsCalendar td.etat-disponible:hover,
+.jsCalendar td.etat-disponible:focus {
+  background-color: #16a34a !important; /* vert */
+  color: white !important;
+  border-radius: 50%;
+}
+
+.jsCalendar td.etat-reserve,
+.jsCalendar td.etat-reserve:hover,
+.jsCalendar td.etat-reserve:focus {
+  background-color: #facc15 !important; /* jaune */
+  color: black !important;
+  border-radius: 50%;
+}
+
+.jsCalendar td.etat-ferme,
+.jsCalendar td.etat-ferme:hover,
+.jsCalendar td.etat-ferme:focus {
+  background-color: #9ca3af !important; /* gris */
+  color: white !important;
+  border-radius: 50%;
+}
+
+
 .selected {
   outline: 2px solid #f59e0b;
   border-radius: 50%;
+}
+
+/* Masquer scrollbar proprement */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
 }

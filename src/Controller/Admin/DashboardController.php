@@ -2,13 +2,16 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Affiche;
+use App\Entity\Calendrier;
 use App\Entity\Commentaire;
-use App\Entity\ImageSlider;
 use App\Entity\ImageGallery;
+use App\Entity\Prestation;
 use App\Entity\VideoGallery;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,8 +24,8 @@ class DashboardController extends AbstractDashboardController
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
-        // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        // return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
+        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        return $this->redirect($adminUrlGenerator->setController(CommentaireCrudController::class)->generateUrl());
         // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
         // // 👇 Cette ligne génère une URL correcte pour le CRUD de "Commentaire"
@@ -32,7 +35,7 @@ class DashboardController extends AbstractDashboardController
         //     ->generateUrl();
 
         // return $this->redirect($url);
-        return $this->render('admin/dashboard.html.twig');
+        //return $this->render('admin/dashboard.html.twig');
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -54,11 +57,12 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Commentaires', 'fas fa-comments', Commentaire::class);
-        yield MenuItem::linkToCrud('Sliders', 'fas fa-images', ImageSlider::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-images', ImageGallery::class);
         yield MenuItem::linkToCrud('Vidéos', 'fas fa-video', VideoGallery::class);
+        yield MenuItem::linkToCrud('Prestation', 'fas fa-images', Prestation::class);
+        yield MenuItem::linkToCrud('Affiche', 'fas fa-images', Affiche::class);
+        yield MenuItem::linkToCrud('Calendrier', 'fas fa-calendar', Calendrier::class);
 
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
